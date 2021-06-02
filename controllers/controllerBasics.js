@@ -2,7 +2,7 @@ const pathDb = "./public/tracker.db";
 const db = require('./../scripts/modules/database');
 
 exports.getHome = (req, res) => {
-    res.send(db.sessionCollections());
+    res.send({data: db.sessionCollections(), tracks: db.getAllTracks()});
 }
 
 exports.getSessionTimes = (req, res) => {

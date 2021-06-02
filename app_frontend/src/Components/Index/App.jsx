@@ -11,7 +11,8 @@ class App extends Component {
         super(props);
 
         this.state = {
-            data: []
+            data: [],
+            tracks: []
         }
     }
 
@@ -20,7 +21,8 @@ class App extends Component {
 
         axios.get(`http://${Base.getIp()}:${Base.getPort()}`)
             .then((res) => {
-                this.setState({ data: res.data });
+                console.log(res.data.data);
+                this.setState({ data: res.data.data, tracks: res.data.tracks });
             });
     }
 
@@ -79,6 +81,31 @@ class App extends Component {
                                     })}
                             </tbody>
                         </table>
+                    </div>
+                </section>
+                <section id="homeSection2">
+                    <div id="homeTitle">
+                        <i className="fas fa-clock"></i>
+                        <hr />
+                        <h1>TOTAL RESULTS PER TRACK</h1>
+                        <h5>Da fare dinamico</h5>
+                    </div>
+                    <div id="homeContainer2">
+                        <div className="container">
+                            <div className="row">
+                                {this.state.tracks.map((track, i) => {
+                                    return (
+
+                                        <div className="col-6 col-lg-4 trackCol">
+                                            <Link to={"/fullLeaderboard/" + track.tra_nameCode}>
+                                                <img id="flagCol" src={track.tra_track} alt="track" />
+                                                <h5>{track.tra_name}</h5>
+                                            </Link>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <Footer />

@@ -5,6 +5,7 @@ class Chart {
     lineChart = (id, times) => {
         let arrTimes = [];
         let arrTimesFormatted = [];
+        let avg = Base.calculateAvgArray(times);
         for(let time of times) {
             arrTimes.push(time.tim_totalTime);
             arrTimesFormatted.push(Base.getFullTime(time.tim_totalTime*1000));
@@ -15,6 +16,15 @@ class Chart {
             data: {
                 labels: arrTimesFormatted,
                 datasets: [
+                    {
+                        data: avg,
+                        backgroundColor: [
+                            "rgba(199, 0, 0, 0)",
+                        ],
+                        borderColor: "rgba(255, 255, 255, 1)",
+                        fillColor: "rgba(210,27,71,0)",
+                        borderWidth: 1
+                    },
                     {   
                         data: arrTimes,
                         backgroundColor: [
@@ -22,8 +32,8 @@ class Chart {
                         ],
                         borderColor: "rgba(139, 0, 0, 1)",
                         fillColor: "rgba(210,27,71,0)",
-                        borderWidth: 3
-                    },
+                        borderWidth: 1
+                    }
                 ]
             },
             options: {

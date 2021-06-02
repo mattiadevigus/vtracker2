@@ -20,7 +20,7 @@ exports.getFullTime = (seconds) => {
         seconds = duration;
     }
     seconds = seconds.toFixed(3);
-    
+
     if (minutes === 0) {
         tot = seconds;
     } else {
@@ -31,6 +31,21 @@ exports.getFullTime = (seconds) => {
 
 exports.getGap = (bestTime, currentTime) => {
     let gap = bestTime - currentTime;
-    
-    return (gap === 0 ? "-" : "+" + (this.getFullTime(gap)*-1).toFixed(3)) ;
+
+    return (gap === 0 ? "-" : "+" + (this.getFullTime(gap) * -1).toFixed(3));
+}
+
+
+exports.calculateAvgArray = (times) => {
+    let avg = [];
+    let sum = 0;
+    let i = 1;
+
+    for (let time of times) {
+        avg.push(((sum + time.tim_totalTime) / i));
+        sum = sum + time.tim_totalTime;
+        i++;
+    }
+
+    return avg;
 }

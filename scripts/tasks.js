@@ -4,7 +4,7 @@ const timeParse = require('./modules/time');
 const database = require('./modules/database');
 
 exports.startup = () => {
-    // retrieve data from json
+    
     const arr = results.getAllJsonFiles("C:\\Users\\matti\\Desktop\\Scottish Gaming League Server\\results");
     const arrDates = results.getAllJsonDataCreation("C:\\Users\\matti\\Desktop\\Scottish Gaming League Server\\results");
 

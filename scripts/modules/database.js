@@ -65,7 +65,7 @@ exports.sessionDetails = (sessionId) => {
 }
 
 exports.driverDetail = (sessionId, driverName) => {
-    let db = new sqlite(pathDb/* , { verbose: console.log } */);
+    const db = new sqlite(pathDb/* , { verbose: console.log } */);
 
     let stmt = db.prepare(`SELECT * FROM (SELECT tim_sectorOne, tim_sectorTwo, tim_sectorTree, sum(tim_sectorOne + tim_sectorTwo + tim_sectorTree) as tim_totalTime FROM Times INNER JOIN Sessions ON ses_id = tim_sessionId WHERE ses_id = ? AND tim_driverName = ? GROUP BY tim_driverName, tim_sectorOne, tim_sectorTwo, tim_sectorTree);`);
     let times = stmt.all(sessionId, driverName);
@@ -82,4 +82,13 @@ exports.driverDetail = (sessionId, driverName) => {
     console.log(bestDriverTime);
 
     return [times, avgSpeed, bestTime.tim_totalTime, bestDriverTime.tim_totalTime];
+}
+
+exports.getAllTracks = () => {
+    const db = new sqlite(pathDb);
+
+    let stmt = db.prepare(`SELECT tra_name, tra_nameCode, tra_flag, tra_track FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode GROUP BY tra_name`);
+    let tracks = stmt.all();
+
+    return tracks;
 }
