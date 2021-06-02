@@ -1,0 +1,294 @@
+body {
+    background-color: #15151e;
+    color: #c5c5c5;
+}
+
+h5 {
+    margin: 5px !important;
+}
+
+a {
+    color: #c5c5c5;
+    text-decoration: none;
+    transition: .3s;
+}
+
+a:hover {
+    color: #8b0000;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #15151e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+nav {
+    border-bottom: 1px solid #8b0000;
+    background-color: #15151e;
+    box-shadow: 0 0 5px #080808 ;
+    padding: 0 !important;
+}
+
+nav span {
+    color: #8b0000;
+    font-size: 50px !important;
+}
+
+nav img {
+    width: 10em;
+    padding-left: 0.4em;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+footer i {
+    margin: 5px;
+}
+
+.navbar-right {
+    font-size: 25px;
+    padding-right: 0.4em;
+}
+
+#particleJS #tsparticles canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    z-index: -1;
+}
+
+#homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2 {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid #8b0000;
+}
+
+#homeContainer {
+    width: 35%;
+}
+
+#homeContainer img {
+    width: 35%;
+}
+
+#homeContainer a{
+    color: #c5c5c5;
+    text-decoration: none;
+    transition: .3s;
+}
+
+#homeContainer a:hover{
+    color: #8b0000;
+}
+
+#homeContainer2, #sessionContainer {
+    width: 90%;
+}
+
+#homeContainer2 img, #sessionContainer img{
+    padding: 20px;
+}
+
+#arrowCont {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 50px;
+}
+
+.arrow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.arrow span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-bottom: 5px solid #c5c5c5;
+    border-right: 5px solid #c5c5c5;
+    transform: rotate(45deg);
+    margin-top: -10px;
+    animation: animate 3s infinite;
+}
+
+.arrow:hover span{
+    border-bottom: 5px solid #8b0000;
+    border-right: 5px solid #8b0000;
+}
+
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(0,0);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
+}
+
+#homeTitle, #sessionTitle {
+    margin:50px
+}
+
+#homeTitle i, #sessionTitle i, #sessionDetailTitle i{
+    font-size: 40px;
+}
+
+#sessionDetailTitle {
+    margin: 10px;
+}
+
+#homeDesc {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #636363;
+}
+
+#sessionList {
+    display: block;
+    position: sticky; 
+    max-height: 50vh;
+    overflow-y: scroll;
+    width: 100%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+#sessionList thead {
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #8b0000;
+    background-color: #15151e;
+    color: white;
+    z-index: 1;
+}
+
+#sessionList tbody, #sessionList thead {
+    width: 100%;
+    display: inline-table;
+    table-layout:fixed;
+}
+
+#sessionList th, #sessionList td {
+    padding: 20px;
+}
+
+#sessionList td {
+    vertical-align: middle;
+    color: #c5c5c5;
+    text-align: center;
+    background-color: #15151e;
+}
+
+#sessionList td img {
+    width: 5rem;
+}
+
+#sessionList td a {
+    text-decoration: none;
+    color: #c5c5c5;
+    transition: .1s;
+}
+
+#sessionList td a:hover {
+    text-decoration: none;
+    color: #8b0000;
+}
+
+#sessionList i  {
+    font-size: 1.7rem;
+}
+
+#tableFooter {
+    background-color: #15151e;
+    padding: 10px;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+#chartContainer {
+    width: 50%;
+}
+
+#chartContainer i {
+    font-size: 5rem;
+}
+
+#sessionContainer #statSession {
+    font-size: 5em;
+}
+
+#sessionContainer #statSession:nth-child(3) {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.row div {
+    align-self: center !important; 
+}
+
+.baseEle {
+    text-transform: uppercase;
+    color: #8b0000;
+}
+
+.personalBestEle {
+    text-transform: uppercase;
+    color: #129e00;
+}
+
+.bestEle {
+    text-transform: uppercase;
+    color: #9e009e;
+}
+
+.rotate {
+    animation: rotation 2s infinite linear;
+}
+
+.fa-spin {
+    -webkit-animation: fa-spin 15s linear infinite !important;
+    animation: fa-spin 15s linear infinite !important;
+}
+
+.statRed {
+    color: #8b0000;
+}
+
+canvas {
+    width: 100%;
+    margin: 0 auto;
+}

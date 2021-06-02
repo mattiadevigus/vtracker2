@@ -1,0 +1,73 @@
+/* Smarthphone */
+@media only screen 
+and (max-width : 768px) {
+
+    section {
+        height: calc(var(--vh, 1vh) * 100) !important;
+    }
+
+    .only-desktop {
+        display: none;
+    }
+
+    .row {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #sessionContainer #statSession {
+        font-size: 3em;
+    }
+
+    canvas {
+        width: 60vw !important;
+        height: 200px !important;
+        margin: 0 auto;
+    }
+
+    #sessionTitle {
+        margin: 5px;
+    }
+
+    #chartContainer {
+        width: 100%;
+    }
+
+}
+
+/* Tablet */
+@media only screen 
+and (max-width : 989px) and (min-width : 769px) {
+    .row {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+/* Laptops */
+@media only screen 
+and (max-width : 1400px) and (min-width: 990px) {
+
+    .row {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #sessionContainer #statSession {
+        font-size: 4em;
+    }
+
+    #sessionTitle {
+        margin: 10px;
+    }
+    
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1401px) {
+    .row {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
