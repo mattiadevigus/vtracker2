@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from './Components/Index/App';
 import Session from './Components/Pages/Session';
 import SessionDetail from './Components/Pages/SessionDetail';
+import FullLeaderboard from './Components/Pages/FullLeaderboard';
 import Particles from 'react-particles-js';
 
 
@@ -31,6 +32,7 @@ ReactDOM.render(
           <Route exact path="/" component={() => <App />} />
           <Route exact path="/session/:id" component={() => <Session />} />
           <Route exact path="/session/:id/:driver" component={() => <SessionDetail />} />
+          <Route exact path="/fullLeaderboard/:track" component={() => <FullLeaderboard />} />
           <App />
         </Switch>
       </Router>

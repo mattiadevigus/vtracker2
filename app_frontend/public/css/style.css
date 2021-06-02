@@ -71,7 +71,7 @@ footer i {
     z-index: -1;
 }
 
-#homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2 {
+#homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2, #fullLeaderBoardSection {
     width: 100%;
     min-height: 100vh;
     display: flex;
