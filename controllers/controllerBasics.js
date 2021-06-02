@@ -12,3 +12,7 @@ exports.getSessionTimes = (req, res) => {
 exports.getSessionDetail = (req, res) => {
     res.send(db.driverDetail(req.params.id, req.params.driver));
 } 
+
+exports.getFullLeaderboard = (req, res) => {
+    res.send(db.fullLeaderboard(req.params.track));
+}

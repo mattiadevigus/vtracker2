@@ -12,4 +12,7 @@ router
 router
     .get("/session/:id/:driver", controllerBasics.getSessionDetail);
 
+router
+    .get("/fullLeaderboard/:track", controllerBasics.getFullLeaderboard);
+
 module.exports = router;
