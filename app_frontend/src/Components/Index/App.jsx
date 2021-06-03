@@ -88,7 +88,6 @@ class App extends Component {
                         <i className="fas fa-clock"></i>
                         <hr />
                         <h1>TOTAL RESULTS PER TRACK</h1>
-                        <h5>Da fare dinamico</h5>
                     </div>
                     <div id="homeContainer2">
                         <div className="container">
