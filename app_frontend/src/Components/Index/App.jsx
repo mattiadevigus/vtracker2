@@ -18,6 +18,7 @@ class App extends Component {
 
     componentDidMount = () => {
         window.scrollTo(0, 0);
+        document.title = "Vtracker";
 
         axios.get(`http://${Base.getIp()}:${Base.getPort()}`)
             .then((res) => {
@@ -94,9 +95,8 @@ class App extends Component {
                             <div className="row">
                                 {this.state.tracks.map((track, i) => {
                                     return (
-
                                         <div className="col-6 col-lg-4 trackCol">
-                                            <Link to={"/fullLeaderboard/" + track.tra_nameCode}>
+                                            <Link id="trackLink" to={"/fullLeaderboard/" + track.tra_nameCode}>
                                                 <img id="flagCol" src={track.tra_track} alt="track" />
                                                 <h5>{track.tra_name}</h5>
                                             </Link>

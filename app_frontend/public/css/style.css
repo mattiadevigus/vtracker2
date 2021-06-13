@@ -298,6 +298,11 @@ canvas {
     padding: 0;
 }
 
+#flagTitle:nth-child(1) {
+    width: 25%;
+    padding: 0;
+}
+
 .trackCol {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -309,5 +314,8 @@ canvas {
     transform: scale(1.1);
     box-shadow: 0 0 20px #080808;
     background-color: #1e1e30;
-    cursor: pointer;
+}
+
+#trackLink:hover {
+    color: #c5c5c5;
 }
