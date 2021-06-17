@@ -37,6 +37,7 @@ class App extends Component {
                         <hr />
                         <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by <a href="#">Mattia Devigus</a></p>
                         <hr />
+                        <h1>BETA 1</h1>
                     </div>
                     <div id="arrowCont">
                         <a href="#2">
@@ -63,21 +64,21 @@ class App extends Component {
                                     <th>Track</th>
                                     <th className="only-desktop">Weather</th>
                                     <th className="only-desktop">Type</th>
-                                    <th>Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     this.state.data.map((session, i) => {
                                         return (
+                                            <Link className="linkTable" to={`session/${session.ses_id}`}>
                                             <tr>
                                                 <td>{session.ses_serverName}</td>
                                                 <td>{session.ses_creation.split("GMT")[0]}</td>
                                                 <td><img className="only-desktop" src={session.tra_flag} alt="" /> <span className="only-desktop">|</span> <img src={session.tra_track} /></td>
                                                 <td className="only-desktop"> {(session.ses_weather < 0.1 ? <i className="fas fa-sun"></i> : <i className="fas fa-cloud-rain"></i>)} </td>
                                                 <td className="only-desktop">{session.ses_type}</td>
-                                                <td><Link to={`session/${session.ses_id}`}><i className="fas fa-arrow-circle-right"></i></Link></td>
                                             </tr>
+                                            </Link>
                                         )
                                     })}
                             </tbody>

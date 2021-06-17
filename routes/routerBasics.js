@@ -15,4 +15,7 @@ router
 router
     .get("/fullLeaderboard/:track", controllerBasics.getFullLeaderboard);
 
+router 
+    .post("/login", controllerBasics.checkAdmin);
+
 module.exports = router;

@@ -44,6 +44,7 @@ class FullLeaderboard extends Component {
                                 <tr>
                                     <th>#</th>
                                     <th>Full Name</th>
+                                    <th>Car</th>
                                     <th className="only-desktop">S1</th>
                                     <th className="only-desktop">S2</th>
                                     <th className="only-desktop">S3</th>
@@ -59,6 +60,7 @@ class FullLeaderboard extends Component {
                                             <tr>
                                                 <td>{i + 1}</td>
                                                 <td>{time.tim_driverName}</td>
+                                                <td>{time.tim_carModel}</td>
                                                 <td className="only-desktop">{((time.tim_sectorOne === this.state.bestSessions.bestSectorOne ? <span className="bestEle">{time.tim_sectorOne}</span> : time.tim_sectorOne))}</td>
                                                 <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
                                                 <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>

@@ -59,6 +59,10 @@ footer i {
     margin: 5px;
 }
 
+footer img {
+    width: 7%;
+}
+
 .navbar-right {
     font-size: 25px;
     padding-right: 0.4em;
@@ -71,7 +75,7 @@ footer i {
     z-index: -1;
 }
 
-#homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2, #fullLeaderBoardSection {
+#homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2, #fullLeaderBoardSection, #formSection, #dashboardSection {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -318,4 +322,110 @@ canvas {
 
 #trackLink:hover {
     color: #c5c5c5;
+}
+
+#formSection form {
+    max-width: 25%;
+    padding: 50px;
+    background-color: #15151e;
+    border: 4px solid #c5c5c5;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+
+#formSection img {
+    width: 15em;
+}
+
+#formSection form label {
+    text-align: right;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#formSection form input {
+    width: 100%;
+    background-color: #15151e;
+    border: 1px solid #636363;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: .2s;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+#formSection form input::placeholder {
+    text-align: center;
+}
+
+#formSection form input:hover {
+    border: 1px solid white;
+    border-radius: 15px;
+}
+
+#formSection form input:focus::placeholder  {
+    color: #b9b9b9;
+}
+
+#formSection form input:focus {
+    border: 1px solid #8b0000;
+    border-radius: 5px;
+}
+
+#formSection form button {
+    padding: 10px 20px 10px 20px;
+    background-color: #15151e;
+    color: white;
+    border: 2px solid #8b0000;
+    transition: .3s;
+}
+
+#formSection form button:hover {
+    padding: 10px 40px 10px 40px;
+    background-color: #15151e;
+    color: white;
+    border: 2px solid #8b0000;
+    background-color: #8b0000;
+}
+
+#formSection form button:focus {
+    padding: 10px 40px 10px 40px;
+    background-color: #15151e;
+    color: white;
+    border: 2px solid #8b000070;
+    background-color: #8b000070;
+}
+
+.linkTable {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.linkTable:hover td{
+    background-color: rgba(139, 0, 0, .7) !important;
+    transition: .3s;
+}
+
+.linkTable:focus td{
+    background-color: rgba(139, 0, 0, 1) !important;
+    transition: .3s;
+}
+
+.fa-spin {
+    animation: fa-spin 5s linear infinite !important;
+}
+
+#dashboardSection img {
+    width: 20rem !important;
+}
+
+.list-group-item.active {
+    color: #fff;
+    background-color: #8b0000;
+    border-color: #8b0000;
 }

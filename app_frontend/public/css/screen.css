@@ -33,6 +33,14 @@ and (max-width : 768px) {
         width: 100%;
     }
 
+    #formSection form {
+        max-width: 80%;
+    }
+
+    #formSection form img {
+        max-width: 100%;
+    }
+
 }
 
 /* Tablet */
@@ -41,6 +49,14 @@ and (max-width : 989px) and (min-width : 769px) {
     .row {
         margin-top: 0;
         margin-bottom: 0;
+    }
+
+    #formSection form {
+        max-width: 80%;
+    }
+
+    #formSection form img {
+        max-width: 100%;
     }
 }
 

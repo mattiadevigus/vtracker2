@@ -23,6 +23,4 @@ exports.startup = () => {
 
         j++;
     }
-
-
 }

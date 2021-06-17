@@ -1,8 +1,9 @@
 const pathDb = "./public/tracker.db";
 const db = require('./../scripts/modules/database');
+const config = require('./../scripts/modules/config');
 
 exports.getHome = (req, res) => {
-    res.send({data: db.sessionCollections(), tracks: db.getAllTracks()});
+    res.send({ data: db.sessionCollections(), tracks: db.getAllTracks() });
 }
 
 exports.getSessionTimes = (req, res) => {
@@ -11,8 +12,18 @@ exports.getSessionTimes = (req, res) => {
 
 exports.getSessionDetail = (req, res) => {
     res.send(db.driverDetail(req.params.id, req.params.driver));
-} 
+}
 
 exports.getFullLeaderboard = (req, res) => {
     res.send(db.fullLeaderboard(req.params.track));
+}
+
+exports.checkAdmin = (req, res) => {
+    console.log(req.body);
+    const parameters = config.getAllConfigParameters();
+    if (parameters.user === req.body.username && parameters.password === req.body.password) {
+        res.send(true);
+    } else {
+        res.send(false);
+    }
 }
