@@ -1,12 +1,15 @@
-const colors = require('colors/safe');
 const results = require('./modules/results');
 const timeParse = require('./modules/time');
 const database = require('./modules/database');
+const bash = require('./modules/bash');
+const config = require('./modules/config');
 
 exports.startup = () => {
-    
-    const arr = results.getAllJsonFiles("C:\\Users\\matti\\Desktop\\Scottish Gaming League Server\\results");
-    const arrDates = results.getAllJsonDataCreation("C:\\Users\\matti\\Desktop\\Scottish Gaming League Server\\results");
+    console.log("Update");
+
+    const configParameters = config.getAllConfigParameters();
+    const arr = results.getAllJsonFiles(configParameters.resPath);
+    const arrDates = results.getAllJsonDataCreation(configParameters.resPath);
 
     let j = 0;
 
@@ -23,4 +26,6 @@ exports.startup = () => {
 
         j++;
     }
+
+    setTimeout(this.startup, 5000);
 }

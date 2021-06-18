@@ -1,13 +1,16 @@
 const fs = require('fs');
+const colors = require('colors/safe');
 
 exports.getAllJsonFiles = (filespath) => {
     let arr = [];
     if (fs.existsSync(filespath)) {
-        console.log("esiste");
         let files = fs.readdirSync(filespath);
+        if(files.length == 0) console.log(colors.bgRed(`0 files detected`));
         files.forEach(file => {
             arr.push(this.getJsonFile(filespath + "\\" + file));
         });
+    } else {
+        console.log(colors.bgRed(`No directory found || Your directory: ${filespath}`));
     }
 
     return arr;
