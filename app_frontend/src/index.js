@@ -6,8 +6,8 @@ import Session from './Components/Pages/Session';
 import SessionDetail from './Components/Pages/SessionDetail';
 import FullLeaderboard from './Components/Pages/FullLeaderboard';
 import Login from './Components/Private/Login';
+import ServerLeaderboard from './Components/Pages/ServerLeaderboard';
 import Dashboard from './Components/Private/Dashboard';
-
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -23,6 +23,7 @@ ReactDOM.render(
           <Route exact path="/fullLeaderboard/:track" component={() => <FullLeaderboard />} />
           <Route exact path="/login" component={() => <Login />} />
           <Route exact path="/dashboard" component={() => <Dashboard />} />
+          <Route exact path="/serverLeaderboard/:server/:track/:weather" component={() => <ServerLeaderboard />} />
           <App />
         </Switch>
       </Router>

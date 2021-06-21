@@ -47,14 +47,14 @@ class App extends Component {
                                 <span></span>
                             </div>
                         </a>
+                        <a name="2"></a>
                     </div>
                 </section>
-                <a name="2"></a>
                 <section id="homeSection2">
                     <div id="homeTitle">
                         <i className="fas fa-clock"></i>
                         <hr />
-                        <h1>SERVERS</h1>
+                        <h1>SERVER LIST</h1>
                     </div>
                     <div id="homeContainer2">
                         <div className="container">
@@ -62,15 +62,15 @@ class App extends Component {
                                 {this.state.servers.map((server, i) => {
                                     return (
                                         <div className="col-12 col-lg-4 serverCol">
-                                            <Link id="trackLink" to={"/generalLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode + "/" + server.ses_weather}>
+                                            <Link id="trackLink" to={"/serverLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode + "/" + server.ses_weather}>
                                                 <div className="row">
-                                                    <div className="col-12 col-md-4 colS">
+                                                    <div className="col-4 col-md-4 colS">
                                                         <i className="fas fa-server fa-3x"></i>
                                                     </div>
-                                                    <div className="col-md-4 colS only-desktop">
+                                                    <div className="col-4 colS">
                                                         <img src={server.tra_track} alt="" />
                                                     </div>
-                                                    <div className="col col-md-4 colS only-desktop">
+                                                    <div className="col-4 col-md-4 colS">
                                                         <h5>{(server.ses_weather < 0.1 ? <i className="fas fa-sun fa-3x"></i> : <i className="fas fa-cloud-rain fa-3x"></i>)} </h5>
                                                     </div>
                                                 </div>
