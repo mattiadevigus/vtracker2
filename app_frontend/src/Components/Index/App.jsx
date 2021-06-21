@@ -61,16 +61,20 @@ class App extends Component {
                             <div className="row">
                                 {this.state.servers.map((server, i) => {
                                     return (
-                                        <div className="col-4 col-lg-4 serverCol">
+                                        <div className="col-12 col-lg-4 serverCol">
                                             <Link id="trackLink" to={"/generalLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode + "/" + server.ses_weather}>
                                                 <div className="row">
-                                                    <div className="col-12 col-lg-6 colS">
-                                                        <i className="fas fa-server fa-5x"></i>
+                                                    <div className="col-12 col-md-4 colS">
+                                                        <i className="fas fa-server fa-3x"></i>
                                                     </div>
-                                                    <div className="col-lg-6 colS only-desktop">
+                                                    <div className="col-md-4 colS only-desktop">
                                                         <img src={server.tra_track} alt="" />
                                                     </div>
+                                                    <div className="col col-md-4 colS only-desktop">
+                                                        <h5>{(server.ses_weather < 0.1 ? <i className="fas fa-sun fa-3x"></i> : <i className="fas fa-cloud-rain fa-3x"></i>)} </h5>
+                                                    </div>
                                                 </div>
+                                                <hr />
                                                 <h5>{server.ses_serverName}</h5>
                                             </Link>
                                         </div>
