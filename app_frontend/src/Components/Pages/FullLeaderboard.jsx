@@ -21,7 +21,7 @@ class FullLeaderboard extends Component {
     componentDidMount = () => {
         window.scrollTo(0, 0);
         let track = window.location.href.split("/");
-        axios.get(`http://${Base.getIp()}:${Base.getPort()}/fullLeaderboard/${track[4]}`)
+        axios.post(`http://${Base.getIp()}:${Base.getPort()}/fullLeaderboard/${track[4]}`)
             .then((res) => {
                 console.log(res);
                 this.setState({ data: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4] });

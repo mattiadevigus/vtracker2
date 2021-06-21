@@ -86,4 +86,9 @@ and (min-width : 1401px) {
         margin-top: 50px;
         margin-bottom: 50px;
     }
+
+    
+    .serverCol .colS:nth-child(1) {
+        border-right: 1px solid #8b0000;
+    }
 }

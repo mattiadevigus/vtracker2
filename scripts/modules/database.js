@@ -25,6 +25,16 @@ exports.insertTime = (driverName, carModel, time, lastId) => {
     db.close();
 };
 
+exports.serverCollections = () => {
+    const db = new sqlite(pathDb);
+
+    let stmt = db.prepare(`SELECT * FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode GROUP BY ses_serverName, ses_track, ses_weather`);
+    let servers = stmt.all();
+
+    db.close();
+    return servers;
+}
+
 exports.sessionCollections = () => {
     const db = new sqlite(pathDb);
 

@@ -23,7 +23,7 @@ class Chart extends Component {
         let sesId = (window.location.href).split("/")[4];
         let driverId = (window.location.href).split("/")[5];
 
-        axios.get(`http://${Base.getIp()}:${Base.getPort()}/session/${sesId}/${driverId}`)
+        axios.post(`http://${Base.getIp()}:${Base.getPort()}/session/${sesId}/${driverId}`)
             .then((res) => {
                 console.log(res);
                 this.setState({ times: res.data[0], avgSpeed: res.data[1], bestTime: res.data[2], bestDriverTime: res.data[3] });

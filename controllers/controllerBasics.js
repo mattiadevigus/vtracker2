@@ -3,7 +3,7 @@ const db = require('./../scripts/modules/database');
 const config = require('./../scripts/modules/config');
 
 exports.getHome = (req, res) => {
-    res.send({ data: db.sessionCollections(), tracks: db.getAllTracks() });
+    res.send({ servers: db.serverCollections(), sessions: db.sessionCollections(), tracks: db.getAllTracks() });
 }
 
 exports.getSessionTimes = (req, res) => {

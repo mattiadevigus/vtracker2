@@ -307,6 +307,26 @@ canvas {
     padding: 0;
 }
 
+.serverCol {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border: 1px solid #242433;
+    transition: .1s;
+}
+
+.serverCol:hover {
+    box-shadow: 0 0 20px #080808;
+    background-color: #1e1e30; 
+}
+
+.serverCol .colS img {
+    width: 70%;
+}
+
+.serverCol i {
+    padding: 20px;
+}
+
 .trackCol {
     margin-top: 20px;
     margin-bottom: 20px;

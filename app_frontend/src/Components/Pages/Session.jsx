@@ -24,7 +24,7 @@ class Session extends Component {
         let id = (window.location.href).split("/")[4];
         id = id.split("#")[0];
         document.title = `Session detail: ${id}`;
-        axios.get(`http://${Base.getIp()}:${Base.getPort()}/session/${id}`)
+        axios.post(`http://${Base.getIp()}:${Base.getPort()}/session/${id}`)
             .then(res => {
                 this.setState({ data: res.data[0], serverName: res.data[1][0].ses_serverName, weatherValue: res.data[1][0].ses_weather, totalDrivers: res.data[1][1].tim_driverCount, bestTime: res.data[1][2].tim_totalTime, bestSessions: res.data[1][3] });
             })

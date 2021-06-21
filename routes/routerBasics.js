@@ -1,21 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const controllerBasics = require('./../controllers/controllerBasics');
-
-
-router
-    .get("/", controllerBasics.getHome);
+const path = require('path');
 
 router
-    .get("/session/:id", controllerBasics.getSessionTimes);
+    .post("/", controllerBasics.getHome);
 
 router
-    .get("/session/:id/:driver", controllerBasics.getSessionDetail);
+    .post("/session/:id", controllerBasics.getSessionTimes);
 
 router
-    .get("/fullLeaderboard/:track", controllerBasics.getFullLeaderboard);
+    .post("/session/:id/:driver", controllerBasics.getSessionDetail);
 
-router 
+router
+    .post("/fullLeaderboard/:track", controllerBasics.getFullLeaderboard);
+
+router
     .post("/login", controllerBasics.checkAdmin);
+
+router
+    .get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, '../app_frontend/build/index.html'));
+    });
+
 
 module.exports = router;
