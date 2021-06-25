@@ -468,6 +468,11 @@ canvas {
     width: 20%;
 }
 
+#loader button {
+    color: white;
+    border: 1px solid white;
+}
+
 .loader-spin {
     animation: fa-spin 2s linear infinite !important;
 }

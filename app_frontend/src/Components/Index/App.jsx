@@ -24,10 +24,10 @@ class App extends Component {
         document.getElementById("normalPage").style.display = "none";
         axios.post(`http://${Base.getIp()}:${Base.getPort()}`)
             .then((res) => {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("normalPage").style.display = "block";
                 console.log(res);
                 this.setState({ servers: res.data.servers, data: res.data.sessions, tracks: res.data.tracks });
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("normalPage").style.display = "block";
             });
     }
 
@@ -71,19 +71,20 @@ class App extends Component {
                                             <div className="col-12 col-lg-4 serverCol">
                                                 <Link id="trackLink" to={"/serverLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode + "/" + server.ses_weather}>
                                                     <div className="row">
-                                                        <div className="col-4 col-md-12">
+                                                        <div className="col-12 col-md-12">
                                                             <i className="fas fa-server fa-5x"></i>
                                                             <h5>{server.ses_serverName}</h5>
                                                         </div>
                                                     </div>
                                                     <div className="row">
-                                                        <div className="col-2"></div>
-                                                        <div className="col-4 colS">
-                                                            <img src={server.tra_track} alt="" />
+                                                        <div className="col-lg-2"></div>
+                                                        <div className="col-6 col-lg-4 colS">
+                                                            <img src={server.tra_track} alt="track" />
                                                         </div>
-                                                        <div className="col-4 col-md-4 colS">
+                                                        <div className="col-6 col-lg-4 col-md-4 colS">
                                                             <h5>{(server.ses_weather < 0.1 ? <i className="fas fa-sun fa-3x"></i> : <i className="fas fa-cloud-rain fa-3x"></i>)} </h5>
                                                         </div>
+                                                        <div className="col-lg-2"></div>
                                                     </div>
                                                 </Link>
                                             </div>
