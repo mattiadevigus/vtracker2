@@ -449,3 +449,25 @@ canvas {
     background-color: #8b0000;
     border-color: #8b0000;
 }
+
+#loader {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#loader i {
+    color: #8b0000;
+}
+
+#loader img {
+    width: 20%;
+}
+
+.loader-spin {
+    animation: fa-spin 2s linear infinite !important;
+}

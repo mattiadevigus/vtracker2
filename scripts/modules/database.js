@@ -38,7 +38,7 @@ exports.serverCollections = () => {
 exports.sessionCollections = () => {
     const db = new sqlite(pathDb);
 
-    let stmt = db.prepare(`SELECT * FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode`);
+    let stmt = db.prepare(`SELECT * FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode INNER JOIN Times ON tim_sessionId = ses_id GROUP BY  ses_id`);
     let sessions = stmt.all();
 
     db.close();
@@ -99,7 +99,7 @@ exports.driverDetail = (sessionId, driverName) => {
 exports.getAllTracks = () => {
     const db = new sqlite(pathDb);
 
-    let stmt = db.prepare(`SELECT tra_name, tra_nameCode, tra_flag, tra_track FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode GROUP BY tra_name`);
+    let stmt = db.prepare(`SELECT tra_name, tra_nameCode, tra_flag, tra_track FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode INNER JOIN Times ON tim_sessionId = ses_id GROUP BY tra_name`);
     let tracks = stmt.all();
 
     db.close();

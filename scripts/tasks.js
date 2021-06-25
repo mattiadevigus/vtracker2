@@ -27,5 +27,5 @@ exports.startup = () => {
         j++;
     }
 
-    setTimeout(this.startup, 5000);
+    setTimeout(this.startup, 60000);
 }
