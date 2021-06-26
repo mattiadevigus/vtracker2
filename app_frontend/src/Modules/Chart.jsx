@@ -6,10 +6,10 @@ class Chart {
         let arrTimes = [];
         let arrTimesFormatted = [];
         let avg = Base.calculateAvgArray(times);
-        for(let time of times) {
+        for (let time of times) {
             arrTimes.push(time.tim_totalTime);
-            arrTimesFormatted.push(Base.getFullTime(time.tim_totalTime*1000));
-        } 
+            arrTimesFormatted.push(Base.getFullTime(time.tim_totalTime * 1000));
+        }
         let ctx = document.getElementById(id).getContext('2d');
         new cjs(ctx, {
             type: 'line',
@@ -25,7 +25,7 @@ class Chart {
                         fillColor: "rgba(210,27,71,0)",
                         borderWidth: 1
                     },
-                    {   
+                    {
                         data: arrTimes,
                         backgroundColor: [
                             "rgba(139, 0, 0, .6)",
@@ -37,7 +37,7 @@ class Chart {
                 ]
             },
             options: {
-                responsive:true,
+                responsive: true,
                 legend: {
                     display: false
                 },
@@ -50,10 +50,10 @@ class Chart {
                             color: 'transparent'
                         },
                         ticks: {
-                            beginAtZero:false,
+                            beginAtZero: false,
                             display: false
                         },
-                        
+
                     }],
                     xAxes: [{
                         gridLines: {
@@ -65,7 +65,6 @@ class Chart {
             }
         })
     }
-
 }
 
 

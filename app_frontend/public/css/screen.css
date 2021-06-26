@@ -41,7 +41,7 @@ and (max-width : 768px) {
         max-width: 100%;
     }
 
-    #homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2, #fullLeaderBoardSection, #formSection, #dashboardSection {
+    #homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2, #fullLeaderBoardSection, #formSection, #dashboardSection, #serverSection {
         height: auto !important;
         min-height: 100vh;
     }

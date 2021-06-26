@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Base from '../../Modules/Base';
 import Navbar from '../Partials/Navbar';
 import Loader from '../Partials/Loader';
+import Chart from './../../Modules/Chart';
 import axios from 'axios';
 
 class ServerLeaderboard extends Component {
@@ -31,11 +32,14 @@ class ServerLeaderboard extends Component {
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverLeaderboard/${server}/${track}`)
             .then((res) => {
                 console.log(res);
-                this.setState({ times: res.data[0], bestTime: res.data[1] });
+                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4] });
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
                     document.getElementById("normalPage").style.display = "block";
                 }, 1000);
+
+                Chart.lineChart("gapFirst", this.state.times);
+
             })
     }
 
@@ -47,11 +51,32 @@ class ServerLeaderboard extends Component {
                 </div>
                 <div id="normalPage">
                     <Navbar />
-                    <section id="sessionSection">
+                    <section id="serverSection">
                         <div id="sessionTitle">
-                            <img id="flagTitle" src={this.state.trackInfo.tra_track} alt="" />
+                            <div className="row">
+                                <div className="col-12">
+                                    <span className="serverHeader">Server info</span>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-3 serverBodyContent">
+                                    <img id="flagTitle" src={this.state.trackInfo.tra_track} alt="" />
+                                </div>
+                                <div className="col-6 serverBodyContent">
+                                    <div className="row">
+                                        <div className="col-12 col-md-6">
+                                            <h3 id="serverInfo"> {(window.location.href.split("/")[4]).replace("%20", " ")}</h3>
+                                        </div>
+                                        <div className="col-12 col-md-6">
+                                            <h3 id="serverInfo"> {this.state.trackInfo.tra_name}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-3">
+                                    <img id="flagTitle" src={this.state.trackInfo.tra_flag} alt="" />
+                                </div>
+                            </div>
                             <hr />
-                            <h1>FULL LEADERBOARD</h1>
                         </div>
                         <div id="sessionContainer">
                             <table id="sessionList">
@@ -64,6 +89,7 @@ class ServerLeaderboard extends Component {
                                         <th className="only-desktop">S2</th>
                                         <th className="only-desktop">S3</th>
                                         <th>Time</th>
+                                        <th>Weather</th>
                                         <th className="only-desktop">Gap</th>
                                     </tr>
                                 </thead>
@@ -79,6 +105,7 @@ class ServerLeaderboard extends Component {
                                                     <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
                                                     <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
                                                     <td>{(time.tim_totalTime === this.state.bestDriverTime ? <span className="personalBestEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span> : Base.getFullTime((time.tim_totalTime * 1000)))}</td>
+                                                    <td className="only-desktop">{(time.ses_weather <= 0 ? <i className="fas fa-sun"></i> : <i className="fas fa-cloud-rain"></i>)}</td>
                                                     <td className="only-desktop">{Base.getGap((this.state.bestTime * 1000), (time.tim_totalTime * 1000))}</td>
                                                 </tr>
                                             )
@@ -97,6 +124,79 @@ class ServerLeaderboard extends Component {
                                     <span></span>
                                 </div>
                             </a>
+                        </div>
+                    </section>
+                    <a name="2"></a>
+                    <section id="serverSection">
+                        <div id="sessionTitle">
+                            <i className="fas fa-poll-h"></i>
+                            <hr />
+                            <h1>DETAILS</h1>
+                        </div>
+                        <div id="sessionContainer">
+                            <div className="row">
+                                <div className="col-lg-1"></div>
+                                <div className="col-6 col-lg-5">
+                                    <h1 id="statSession" className="bestEle">{Base.getFullTime((this.state.bestTime * 1000))}</h1>
+                                    <hr />
+                                    <h3 id="statSession">BEST TIME SESSION</h3>
+                                </div>
+                                <div className="col-6 col-lg-5">
+                                    <h1 id="statSession">{this.state.totalDrivers}</h1>
+                                    <hr />
+                                    <h3 id="statSession">TOTAL DRIVERS</h3>
+                                </div>
+                                <div className="col-lg-1"></div>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-1"></div>
+                                <div className="col-6 col-lg-5">
+                                    <i className="fa-4x fas fa-sync fa-spin"></i>
+                                    <hr />
+                                    <h5>INCOMING</h5>
+                                </div>
+                                <div className="col-6 col-lg-5">
+                                    <i className="fa-4x fas fa-sync fa-spin"></i>
+                                    <hr />
+                                    <h5>INCOMING</h5>
+                                </div>
+                                <div className="col-lg-1"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="chartSection">
+                        <div id="sessionTitle">
+                            <i className="fas fa-poll-h"></i>
+                            <hr />
+                            <h1>STATS</h1>
+                        </div>
+                        <div id="chartContainer">
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <canvas id="gapFirst"></canvas>
+                                        <hr />
+                                        <h5>GAP FROM THE FIRST</h5>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <i className="fa-4x fas fa-sync fa-spin"></i>
+                                        <h5>INCOMING</h5>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <i className="fa-4x fas fa-sync fa-spin"></i>
+                                        <h5>INCOMING</h5>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
                         </div>
                     </section>
                 </div>

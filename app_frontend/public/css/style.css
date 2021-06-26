@@ -75,7 +75,7 @@ footer img {
     z-index: -1;
 }
 
-#homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2, #fullLeaderBoardSection, #formSection, #dashboardSection {
+#homeSection, #homeSection2, #sessionSection, #sessionSection2, #sessionDetailSection, #sessionDetailSection2, #fullLeaderBoardSection, #formSection, #dashboardSection, #serverSection, #chartSection {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -163,8 +163,12 @@ footer img {
     }
 }
 
-#homeTitle, #sessionTitle {
+#homeTitle {
     margin:50px
+}
+
+#sessionTitle {
+    margin: 20px;
 }
 
 #homeTitle i, #sessionTitle i, #sessionDetailTitle i{
@@ -302,7 +306,7 @@ canvas {
     padding: 0;
 }
 
-#flagTitle:nth-child(1) {
+#flagTitle {
     width: 25%;
     padding: 0;
 }
@@ -479,4 +483,16 @@ canvas {
 
 .loader-spin {
     animation: fa-spin 2s linear infinite !important;
+}
+
+#serverSection #serverInfo {
+    text-transform: uppercase;
+}
+
+.serverHeader {
+    border-bottom: 1px solid #8b0000;
+}
+
+.serverBodyContent {
+    border-right: 1px solid #8b0000;
 }
