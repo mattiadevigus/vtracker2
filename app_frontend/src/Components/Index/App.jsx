@@ -69,7 +69,7 @@ class App extends Component {
                                     {this.state.servers.map((server, i) => {
                                         return (
                                             <div className="col-12 col-lg-4 serverCol">
-                                                <Link id="trackLink" to={"/serverLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode + "/" + server.ses_weather}>
+                                                <Link id="trackLink" to={"/serverLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode}>
                                                     <div className="row">
                                                         <div className="col-12 col-md-12">
                                                             <i className="fas fa-server fa-5x"></i>
@@ -82,7 +82,7 @@ class App extends Component {
                                                             <img src={server.tra_track} alt="track" />
                                                         </div>
                                                         <div className="col-6 col-lg-4 col-md-4 colS">
-                                                            <h5>{(server.ses_weather < 0.1 ? <i className="fas fa-sun fa-3x"></i> : <i className="fas fa-cloud-rain fa-3x"></i>)} </h5>
+                                                            <img src={server.tra_flag} alt="flag" />
                                                         </div>
                                                         <div className="col-lg-2"></div>
                                                     </div>

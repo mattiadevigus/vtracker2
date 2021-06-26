@@ -50,6 +50,15 @@ and (max-width : 768px) {
         padding-bottom: 15px;
     }
 
+    .serverCol .colS:nth-child(1), .serverCol .colS:nth-child(2){
+        border-right: 1px solid #8b0000;
+    }
+
+    .row {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
 }
 
 /* Tablet */
@@ -66,6 +75,10 @@ and (max-width : 989px) and (min-width : 769px) {
 
     #formSection form img {
         max-width: 100%;
+    }
+
+    .serverCol .colS:nth-child(1), .serverCol .colS:nth-child(2){
+        border-right: 1px solid #8b0000;
     }
 }
 
@@ -84,6 +97,10 @@ and (max-width : 1400px) and (min-width: 990px) {
 
     #sessionTitle {
         margin: 10px;
+    }
+
+    .serverCol .colS:nth-child(1), .serverCol .colS:nth-child(2){
+        border-right: 1px solid #8b0000;
     }
     
 }

@@ -27,3 +27,7 @@ exports.checkAdmin = (req, res) => {
         res.send(false);
     }
 }
+
+exports.getServerDetail = (req, res) => {
+    res.send(db.serverDetail(req.params.server, req.params.track));
+}

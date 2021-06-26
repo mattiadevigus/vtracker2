@@ -19,6 +19,9 @@ router
     .post("/login", controllerBasics.checkAdmin);
 
 router
+    .post("/serverLeaderboard/:server/:track", controllerBasics.getServerDetail);
+
+router
     .get("*", (req, res) => {
         res.sendFile(path.join(__dirname, '../app_frontend/build/index.html'));
     });

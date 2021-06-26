@@ -109,7 +109,7 @@ footer img {
 }
 
 #homeContainer2 img, #sessionContainer img{
-    padding: 20px;
+    padding: 10px;
 }
 
 #arrowCont {
@@ -321,6 +321,10 @@ canvas {
 
 .serverCol .colS img {
     width: 90%;
+}
+
+.serverCol .colS:nth-child(3) img {
+    width: 65%;
 }
 
 .serverCol i {

@@ -23,7 +23,7 @@ ReactDOM.render(
           <Route exact path="/fullLeaderboard/:track" component={() => <FullLeaderboard />} />
           <Route exact path="/login" component={() => <Login />} />
           <Route exact path="/dashboard" component={() => <Dashboard />} />
-          <Route exact path="/serverLeaderboard/:server/:track/:weather" component={() => <ServerLeaderboard />} />
+          <Route exact path="/serverLeaderboard/:server/:track" component={() => <ServerLeaderboard />} />
           <App />
         </Switch>
       </Router>
