@@ -1,12 +1,13 @@
 class Base {
 
     getIp = () => {
-        let ip = (window.location.host).split(":");
+        const ip = (window.location.host).split(":");
         return ip[0];
     }
     
     getPort = () => {
-        return 9000;
+        const port  = (window.location.host).split(":");
+        return port[1];
     }
     
     getFullTime = (seconds) => {
