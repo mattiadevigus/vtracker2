@@ -26,10 +26,12 @@ class Login extends Component {
     }
 
     submitHandle = (e) => {
+        document.getElementById("loading").style.display = "block";
         e.preventDefault();
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/login`, this.state)
             .then(res => {
                 if(res.data === false) {
+                    document.getElementById("loading").style.display = "none";
                     this.setState({ errorMessage: "Wrong Credentials!" });
                 } else {
                     sessionStorage.setItem("token", this.state.username);
@@ -56,6 +58,7 @@ class Login extends Component {
                         <hr />
                         <p className="red">{this.state.errorMessage}</p>
                         <button>Go</button>
+                        <div id="loading"><i className="fa-1x fas fa-sync fa-spin"></i></div>
                     </form>
                 </section>
             </div>

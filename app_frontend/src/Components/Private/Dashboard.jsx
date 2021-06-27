@@ -3,6 +3,13 @@ import Navbar from '../Partials/Navbar';
 import Footer from '../Partials/Footer';
 
 class Dashboard extends Component {
+
+    componentDidMount = () => {
+        if(sessionStorage.getItem("token") === null) {
+            window.location.replace("/login");
+        }
+    }
+
     render = () => {
         return (
             <div>

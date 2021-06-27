@@ -476,9 +476,14 @@ canvas {
     width: 20%;
 }
 
-#loader button {
+#loader button, #sessionDetailSection button {
     color: white;
     border: 1px solid white;
+}
+
+#loader button:hover, #sessionDetailSection button:hover {
+    background-color: white;
+    color: #15151e !important;
 }
 
 .loader-spin {
@@ -495,4 +500,22 @@ canvas {
 
 .serverBodyContent {
     border-right: 1px solid #8b0000;
+}
+
+#loading {
+    display: none;
+    margin: 10px;
+    color: #8b0000;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.single-cta i {
+  color: #8b0000;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
 }

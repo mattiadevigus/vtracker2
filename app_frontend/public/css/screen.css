@@ -109,8 +109,8 @@ and (max-width : 1400px) and (min-width: 990px) {
 @media only screen 
 and (min-width : 1401px) {
     .row {
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     
     .serverCol .colS:nth-child(1), .serverCol .colS:nth-child(2){

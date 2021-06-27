@@ -7,6 +7,7 @@ import SessionDetail from './Components/Pages/SessionDetail';
 import FullLeaderboard from './Components/Pages/FullLeaderboard';
 import Login from './Components/Private/Login';
 import ServerLeaderboard from './Components/Pages/ServerLeaderboard';
+import ServerDetail from './Components/Pages/ServerDetail';
 import Dashboard from './Components/Private/Dashboard';
 
 let vh = window.innerHeight * 0.01;
@@ -24,6 +25,7 @@ ReactDOM.render(
           <Route exact path="/login" component={() => <Login />} />
           <Route exact path="/dashboard" component={() => <Dashboard />} />
           <Route exact path="/serverLeaderboard/:server/:track" component={() => <ServerLeaderboard />} />
+          <Route exact path="/serverDetail/:server/:track/:driver" component={() => <ServerDetail />} />
           <App />
         </Switch>
       </Router>

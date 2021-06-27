@@ -4,6 +4,7 @@ import Navbar from '../Partials/Navbar';
 import Loader from '../Partials/Loader';
 import Chart from './../../Modules/Chart';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class ServerLeaderboard extends Component {
 
@@ -55,29 +56,29 @@ class ServerLeaderboard extends Component {
                         <div id="sessionTitle">
                             <div className="row">
                                 <div className="col-12">
-                                    <span className="serverHeader">Server info</span>
+                                    <h5>SERVER INFO</h5>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-3 serverBodyContent">
-                                    <img id="flagTitle" src={this.state.trackInfo.tra_track} alt="" />
-                                </div>
-                                <div className="col-6 serverBodyContent">
-                                    <div className="row">
-                                        <div className="col-12 col-md-6">
-                                            <h3 id="serverInfo"> {(window.location.href.split("/")[4]).replace("%20", " ")}</h3>
-                                        </div>
-                                        <div className="col-12 col-md-6">
-                                            <h3 id="serverInfo"> {this.state.trackInfo.tra_name}</h3>
-                                        </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-3 serverBodyContent">
+                                <img id="flagTitle" src={this.state.trackInfo.tra_track} alt="" />
+                            </div>
+                            <div className="col-6 serverBodyContent">
+                                <div className="row">
+                                    <div className="col-12 col-md-6">
+                                        <h3 id="serverInfo"> {(window.location.href.split("/")[4]).replace("%20", " ")}</h3>
+                                    </div>
+                                    <div className="col-12 col-md-6">
+                                        <h3 id="serverInfo"> {this.state.trackInfo.tra_name}</h3>
                                     </div>
                                 </div>
-                                <div className="col-3">
-                                    <img id="flagTitle" src={this.state.trackInfo.tra_flag} alt="" />
-                                </div>
                             </div>
-                            <hr />
+                            <div className="col-3">
+                                <img id="flagTitle" src={this.state.trackInfo.tra_flag} alt="" />
+                            </div>
                         </div>
+                        <hr />
                         <div id="sessionContainer">
                             <table id="sessionList">
                                 <thead>
@@ -96,18 +97,25 @@ class ServerLeaderboard extends Component {
                                 <tbody>
                                     {
                                         this.state.times.map((time, i) => {
+                                            let serverName = (window.location.href).split("/")[4];
+                                            let track = (window.location.href).split("/")[5];
+                                            serverName = serverName.split("#")[0];
+                                            track = track.split("#")[0];
+                                            let driverLink = "/serverDetail/" + serverName + "/" + track +  "/" + time.tim_driverName;
                                             return (
-                                                <tr>
-                                                    <td>{i + 1}</td>
-                                                    <td>{time.tim_driverName}</td>
-                                                    <td>{time.tim_carModel}</td>
-                                                    <td className="only-desktop">{((time.tim_sectorOne === this.state.bestSessions.bestSectorOne ? <span className="bestEle">{time.tim_sectorOne}</span> : time.tim_sectorOne))}</td>
-                                                    <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
-                                                    <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
-                                                    <td>{(time.tim_totalTime === this.state.bestDriverTime ? <span className="personalBestEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span> : Base.getFullTime((time.tim_totalTime * 1000)))}</td>
-                                                    <td className="only-desktop">{(time.ses_weather <= 0 ? <i className="fas fa-sun"></i> : <i className="fas fa-cloud-rain"></i>)}</td>
-                                                    <td className="only-desktop">{Base.getGap((this.state.bestTime * 1000), (time.tim_totalTime * 1000))}</td>
-                                                </tr>
+                                                <Link className="linkTable" to={driverLink}>
+                                                    <tr>
+                                                        <td>{i + 1}</td>
+                                                        <td>{time.tim_driverName}</td>
+                                                        <td>{time.tim_carModel}</td>
+                                                        <td className="only-desktop">{((time.tim_sectorOne === this.state.bestSessions.bestSectorOne ? <span className="bestEle">{time.tim_sectorOne}</span> : time.tim_sectorOne))}</td>
+                                                        <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
+                                                        <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
+                                                        <td>{(time.tim_totalTime === this.state.bestDriverTime ? <span className="personalBestEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span> : Base.getFullTime((time.tim_totalTime * 1000)))}</td>
+                                                        <td className="only-desktop">{(time.ses_weather <= 0 ? <i className="fas fa-sun"></i> : <i className="fas fa-cloud-rain"></i>)}</td>
+                                                        <td className="only-desktop">{Base.getGap((this.state.bestTime * 1000), (time.tim_totalTime * 1000))}</td>
+                                                    </tr>
+                                                </Link>
                                             )
                                         })
                                     }
@@ -129,9 +137,11 @@ class ServerLeaderboard extends Component {
                     <a name="2"></a>
                     <section id="serverSection">
                         <div id="sessionTitle">
-                            <i className="fas fa-poll-h"></i>
-                            <hr />
-                            <h1>DETAILS</h1>
+                            <div className="row">
+                                <div className="col-12">
+                                    <h1>DETAILS</h1>
+                                </div>
+                            </div>
                         </div>
                         <div id="sessionContainer">
                             <div className="row">
@@ -200,7 +210,7 @@ class ServerLeaderboard extends Component {
                         </div>
                     </section>
                 </div>
-            </div>
+            </div >
         )
     }
 }
