@@ -1,5 +1,6 @@
 {
     "resPath": "C:\\Users\\matti\\Desktop\\Scottish Gaming League Server\\results",
     "user" : "admin",
-    "password" : "admin" 
+    "password" : "admin",
+    "updateTime": "120000"
 }

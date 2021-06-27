@@ -14,9 +14,9 @@ class ServerDetail extends Component {
                     <i className="fa-4x fas fa-sync fa-spin"></i>
                     <h5>INCOMING</h5>
                     <div className="row">
-                    <div id="noserver">
-                        <button className="btn"><Link to="/">HOME</Link></button>
-                    </div>
+                        <div id="noserver">
+                            <Link to="/"><button className="btn">HOME</button></Link>
+                        </div>
                     </div>
                 </section>
             </div>

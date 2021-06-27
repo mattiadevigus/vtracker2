@@ -4,11 +4,11 @@ const database = require('./modules/database');
 const bash = require('./modules/bash');
 const config = require('./modules/config');
 
-exports.startup = () => {
-    console.log("Update");
+exports.startup = async () => {
+    console.log("Updating...");
 
     const configParameters = config.getAllConfigParameters();
-    const arr = results.getAllJsonFiles(configParameters.resPath);
+    const arr = await results.getAllJsonFiles(configParameters.resPath);
     const arrDates = results.getAllJsonDataCreation(configParameters.resPath);
 
     let j = 0;
@@ -27,5 +27,7 @@ exports.startup = () => {
         j++;
     }
 
-    setTimeout(this.startup, 60000);
+    console.log("Done...");
+
+    setTimeout(this.startup, config.getAllConfigParameters().updateTime);
 }
