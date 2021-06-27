@@ -30,10 +30,10 @@ class Footer extends Component {
                                 <div className="single-cta">
                                     <i className="fab fa-paypal"></i>
                                     <div className="cta-text">
-                                        <Link to="https://paypal.me/mattiadevigus?locale.x=it_IT">
+                                        <a href="https://paypal.me/mattiadevigus?locale.x=it_IT">
                                             <h4>Donate me</h4>
                                             <span>I would really appreciate it :)</span>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
