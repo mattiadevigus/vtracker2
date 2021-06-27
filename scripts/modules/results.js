@@ -5,9 +5,11 @@ exports.getAllJsonFiles = (filespath) => {
     let arr = [];
     if (fs.existsSync(filespath)) {
         let files = fs.readdirSync(filespath);
-        if(files.length == 0) console.log(colors.bgRed(`0 files detected`));
+        if (files.length == 0) console.log(colors.bgRed(`0 files detected`));
         files.forEach(file => {
-            arr.push(this.getJsonFile(filespath + "\\" + file));
+            if (file.indexOf(".json") > -1) {
+                arr.push(this.getJsonFile(filespath + "\\" + file));
+            }
         });
     } else {
         console.log(colors.bgRed(`No directory found || Your directory: ${filespath}`));

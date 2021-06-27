@@ -1,7 +1,7 @@
 {
+    "port": 9009,
     "resPath": "C:\\Users\\matti\\Desktop\\Scottish Gaming League Server\\results",
     "user" : "admin",
     "password" : "admin",
-    "updateTime": "120000",
-    "port": 9009
+    "updateTime": "120000"
 }
