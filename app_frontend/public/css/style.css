@@ -533,6 +533,10 @@ ul {
     margin-top: 20px;
 }
 
+#dashboardSection a {
+    color: rgb(172, 172, 172);
+}
+
 #dashboardSection a:hover {
     color: rgb(255, 255, 255);
 }

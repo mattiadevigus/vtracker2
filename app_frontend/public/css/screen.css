@@ -59,6 +59,17 @@ and (max-width : 768px) {
         margin-bottom: 10px;
     }
 
+    .fa-8x {
+        font-size: 5rem !important;
+    }
+
+    #dashboardSection .row {
+        margin-top: 50px;
+    }
+
+    #dashboardSection .row {
+        margin-top: 50px;
+    }
 }
 
 /* Tablet */
