@@ -448,10 +448,6 @@ canvas {
     animation: fa-spin 5s linear infinite !important;
 }
 
-#dashboardSection img {
-    width: 20rem !important;
-}
-
 .list-group-item.active {
     color: #fff;
     background-color: #8b0000;
@@ -476,7 +472,7 @@ canvas {
     width: 20%;
 }
 
-#loader button, #sessionDetailSection button {
+#loader button, #sessionDetailSection button, #dashboardSection button {
     color: white;
     border: 1px solid white;
 }
@@ -522,4 +518,29 @@ ul {
 
 #carlogo {
     width: 4rem !important;
+}
+
+#dashboardSection button {
+    margin: 5px;
+}
+
+.showOnHover {
+    opacity: 0;
+    transition: .3s;
+    color: #ad0000;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+#dashboardSection a:hover {
+    color: rgb(255, 255, 255);
+}
+
+#dashboardSection a:hover .showOnHover {
+    opacity: 1;
+}
+
+#dashboardSection .row {
+    margin-top: 50px;
 }

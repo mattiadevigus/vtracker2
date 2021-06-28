@@ -7,7 +7,7 @@ class Base {
     
     getPort = () => {
         const port  = (window.location.host).split(":");
-        return port[1];
+        return 9009;
     }
     
     getFullTime = (seconds) => {
