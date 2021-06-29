@@ -118,7 +118,6 @@ class FullLeaderboard extends Component {
                                 </div>
                                 <div className="col-lg-1"></div>
                             </div>
-
                         </div>
                     </section>
                 </div>

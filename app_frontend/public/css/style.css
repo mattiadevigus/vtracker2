@@ -270,6 +270,7 @@ footer img {
 
 .baseEle {
     text-transform: uppercase;
+    font-weight: 600;
     color: #8b0000;
 }
 
@@ -550,13 +551,17 @@ ul {
 }
 
 .card-body img {
-    width: 50%;
+    width: 5%;
+    margin-bottom: 30px;
 }
 
 #sessionDetailSection .card {
     width: 75%;
     padding: 20px;
-    border-radius: 10px;
     background-color: #15151e;
-    box-shadow: 0 0 20px #000000;
+    border: none;
+}
+
+#drivername {
+    text-transform: uppercase;
 }
