@@ -45,7 +45,7 @@ class App extends Component {
                             <hr />
                             <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by <a href="#">Mattia Devigus</a></p>
                             <hr />
-                            <h1>BETA 2</h1>
+                            <h1>BETA 3</h1>
                         </div>
                         <div id="arrowCont">
                             <a href="#2">

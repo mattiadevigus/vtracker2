@@ -70,6 +70,10 @@ and (max-width : 768px) {
     #dashboardSection .row {
         margin-top: 50px;
     }
+
+    .card-body img {
+        width: 25%;
+    }
 }
 
 /* Tablet */
