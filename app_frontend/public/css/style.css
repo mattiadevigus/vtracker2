@@ -551,12 +551,12 @@ ul {
 }
 
 .card-body img {
-    width: 5%;
+    width: 30%;
     margin-bottom: 30px;
 }
 
 #sessionDetailSection .card {
-    width: 75%;
+    width: 90%;
     padding: 20px;
     background-color: #15151e;
     border: none;

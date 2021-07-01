@@ -14,7 +14,10 @@ class ServerDetail extends Component {
         this.state = {
             trackInfo: "trackname",
             times: [],
-            bestDriverTime: 0
+            bestDriverTime: 0,
+            bestTime: 0,
+            avgSpeed: 0,
+            totalLaps: 0
         }
     }
 
@@ -29,7 +32,8 @@ class ServerDetail extends Component {
 
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverDetail/${serverName}/${track}/${driverName}`)
             .then(res => {
-                this.setState({ bestDriverTime: res.data[0]})
+                this.setState({ bestDriverTime: res.data[0], bestTime: res.data[1], times: res.data[2], avgSpeed: res.data[3], totalLaps: res.data[4] })
+                console.log(res);
 
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
@@ -51,7 +55,16 @@ class ServerDetail extends Component {
                             <div className="row">
                                 <div className="col-12">
                                     <div className="card-body">
-                                        <img src="/img/v_icon.png" alt="" />
+                                        <div className="row">
+                                            <div className="col-md-3"></div>
+                                            <div className="col-6 col-md-3">
+                                                <img src="/img/v_icon.png" alt="" />
+                                            </div>
+                                            <div className="col-6 col-md-3">
+                                                <img src={this.state.bestDriverTime.car_img} alt="" />
+                                            </div>
+                                            <div className="col-md-3"></div>
+                                        </div>
                                         <div className="row">
                                             <div className="col-md-3"></div>
                                             <div className="col-6 col-md-3 ">
@@ -60,7 +73,7 @@ class ServerDetail extends Component {
                                                 <span className="baseEle">Driver Name</span>
                                             </div>
                                             <div className="col-6 col-md-3">
-                                                <h1>+ 3.214</h1>
+                                                <h1>{Base.getGap((this.state.bestDriverTime.tim_totalTime * 1000), (this.state.bestTime.tim_totalTime * 1000))}</h1>
                                                 <hr />
                                                 <span className="baseEle">Gap to best time</span>
                                             </div>
@@ -76,22 +89,22 @@ class ServerDetail extends Component {
                                                 <h3>PERSONAL BEST TIME: <span className="bestEle">{Base.getFullTime(this.state.bestDriverTime.tim_totalTime * 1000)}</span></h3>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h3>AVG TIME: 1:29:342</h3>
+                                                <h3>AVG SPEED: <span className="baseEle">{this.state.avgSpeed}</span> Km/h</h3>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h3>TOTAL LAPS: 39</h3>
+                                                <h3>TOTAL LAPS: {this.state.totalLaps.tim_driverCount}</h3>
                                             </div>
                                         </div>
                                         <hr />
                                         <div className="row">
                                             <div className="col-12 col-md-4">
-                                                <h1>S1: <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span></h1>
+                                                <h1>S1: {((this.state.bestDriverTime.tim_sectorOne === this.state.bestTime.tim_sectorOne ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorOne}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span>))}</h1>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h1>S2: <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTwo}</span> </h1>
+                                                <h1>S2: {((this.state.bestDriverTime.tim_sectorTwo === this.state.bestTime.tim_sectorTwo ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTwo}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span>))}</h1>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h1>S3: <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTree}</span></h1>
+                                                <h1>S3: {((this.state.bestDriverTime.tim_sectorTree === this.state.bestTime.tim_sectorTree ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTree}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTree}</span>))}</h1>
                                             </div>
                                         </div>
                                     </div>

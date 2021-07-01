@@ -15,7 +15,7 @@ class Chart extends Component {
             times: [""],
             avgSpeed: 0,
             bestTime: 0,
-            bestDriverTime: 0
+            bestDriverTime: 0,
         }
     }
 
