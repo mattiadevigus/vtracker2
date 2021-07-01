@@ -101,7 +101,7 @@ class ServerDetail extends Component {
                                                 <h1>S1: {((this.state.bestDriverTime.tim_sectorOne === this.state.bestTime.tim_sectorOne ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorOne}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span>))}</h1>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h1>S2: {((this.state.bestDriverTime.tim_sectorTwo === this.state.bestTime.tim_sectorTwo ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTwo}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span>))}</h1>
+                                                <h1>S2: {((this.state.bestDriverTime.tim_sectorTwo === this.state.bestTime.tim_sectorTwo ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTwo}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTwo}</span>))}</h1>
                                             </div>
                                             <div className="col-12 col-md-4">
                                                 <h1>S3: {((this.state.bestDriverTime.tim_sectorTree === this.state.bestTime.tim_sectorTree ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTree}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTree}</span>))}</h1>
