@@ -15,7 +15,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <Navbar />
-                <section id="dashboardSection" className="w3-animate-opacity">
+                <section id="dashboardSection" className="animate__animated animate__fadeIn">
                     <div id="sessionTitle">
                         <h1>PRIVATE AREA</h1>
                     </div>

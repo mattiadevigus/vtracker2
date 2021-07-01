@@ -13,15 +13,29 @@ class ServerDetail extends Component {
 
         this.state = {
             trackInfo: "trackname",
-            times: []
+            times: [],
+            bestDriverTime: 0
         }
     }
 
     componentDidMount = () => {
-        setTimeout(() => {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("normalPage").style.display = "block";
-        }, 1000);
+        window.scrollTo(0, 0);
+
+        const serverName = window.location.href.split("/")[4];
+        const track = window.location.href.split("/")[5];
+        const driverName = window.location.href.split("/")[6];
+
+        document.getElementById("normalPage").style.display = "none";
+
+        axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverDetail/${serverName}/${track}/${driverName}`)
+            .then(res => {
+                this.setState({ bestDriverTime: res.data[0]})
+
+                setTimeout(() => {
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById("normalPage").style.display = "block";
+                }, 1000);
+            });
     }
 
     render = () => {
@@ -33,7 +47,7 @@ class ServerDetail extends Component {
                 <div id="normalPage">
                     <Navbar />
                     <section id="sessionDetailSection">
-                        <div className="card w3-animate-opacity">
+                        <div className="card animate__animated animate__fadeIn">
                             <div className="row">
                                 <div className="col-12">
                                     <div className="card-body">
@@ -59,7 +73,7 @@ class ServerDetail extends Component {
                                     <div className="card-body">
                                         <div className="row">
                                             <div className="col-12 col-md-4">
-                                                <h3>PERSONAL BEST TIME: <span className="bestEle">1:29:342</span></h3>
+                                                <h3>PERSONAL BEST TIME: <span className="bestEle">{Base.getFullTime(this.state.bestDriverTime.tim_totalTime * 1000)}</span></h3>
                                             </div>
                                             <div className="col-12 col-md-4">
                                                 <h3>AVG TIME: 1:29:342</h3>
@@ -71,13 +85,13 @@ class ServerDetail extends Component {
                                         <hr />
                                         <div className="row">
                                             <div className="col-12 col-md-4">
-                                                <h1>S1: <span className="personalBestEle">25.321</span></h1>
+                                                <h1>S1: <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span></h1>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h1>S2: <span className="personalBestEle">25.321</span> </h1>
+                                                <h1>S2: <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTwo}</span> </h1>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h1>S3: <span className="personalBestEle">25.321</span></h1>
+                                                <h1>S3: <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTree}</span></h1>
                                             </div>
                                         </div>
                                     </div>

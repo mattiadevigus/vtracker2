@@ -43,9 +43,9 @@ class Session extends Component {
                 <div id="loader">
                     <Loader />
                 </div>
-                <div id="normalPage" className="w3-animate-opacity">
+                <div id="normalPage" className="animate__animated animate__fadeIn">
                     <Navbar />
-                    <section id="sessionSection" className="w3-animate-opacity">
+                    <section id="sessionSection">
                         <div id="sessionTitle">
                             <i className="fas fa-poll-h"></i>
                             <hr />

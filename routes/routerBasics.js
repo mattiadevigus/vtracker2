@@ -19,7 +19,10 @@ router
     .post("/login", controllerBasics.checkAdmin);
 
 router
-    .post("/serverLeaderboard/:server/:track", controllerBasics.getServerDetail);
+    .post("/serverLeaderboard/:server/:track", controllerBasics.getServerLeaderboard);
+
+router
+    .post("/serverDetail/:server/:track/:driver", controllerBasics.getServerDetail)
 
 router
     .get("*", (req, res) => {

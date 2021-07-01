@@ -45,7 +45,7 @@ class Login extends Component {
             <div>
                 <Navbar />
                 <section id="formSection">
-                    <form method="post" className="w3-animate-top" onSubmit={this.submitHandle}>
+                    <form method="post" className="snimate_animated animate__bounceIn" onSubmit={this.submitHandle}>
 
                         <img src="/img/helmet.png" alt="logo" />
                         <hr />

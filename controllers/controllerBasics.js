@@ -28,6 +28,10 @@ exports.checkAdmin = (req, res) => {
     }
 }
 
+exports.getServerLeaderboard = (req, res) => {
+    res.send(db.serverLeaderboard(req.params.server, req.params.track));
+}
+
 exports.getServerDetail = (req, res) => {
-    res.send(db.serverDetail(req.params.server, req.params.track));
+    res.send(db.serverDetail(req.params.server, req.params.track, req.params.driver));
 }

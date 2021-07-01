@@ -21,7 +21,9 @@ class FullLeaderboard extends Component {
 
     componentDidMount = () => {
         window.scrollTo(0, 0);
-        let track = window.location.href.split("/");
+
+        const track = window.location.href.split("/");
+
         document.getElementById("normalPage").style.display = "none";
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/fullLeaderboard/${track[4]}`)
             .then((res) => {
@@ -40,7 +42,7 @@ class FullLeaderboard extends Component {
                 <div id="loader">
                     <Loader />
                 </div>
-                <div id="normalPage" className="w3-animate-opacity">
+                <div id="normalPage" className="animate__animated animate__fadeIn">
                     <Navbar />
                     <section id="sessionSection">
                         <div id="sessionTitle">

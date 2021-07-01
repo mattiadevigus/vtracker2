@@ -39,11 +39,11 @@ class App extends Component {
                 </div>
                 <div id="normalPage">
                     <Navbar />
-                    <section id="homeSection" className="w3-animate-opacity">
+                    <section id="homeSection" className="animate__animated animate__fadeIn">
                         <div id="homeContainer">
                             <img src="/img/icon.png" alt="" />
                             <hr />
-                            <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by <a href="#">Mattia Devigus</a></p>
+                            <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by Mattia Devigus</p>
                             <hr />
                             <h1>BETA 3</h1>
                         </div>
@@ -54,7 +54,7 @@ class App extends Component {
                                     <span></span>
                                 </div>
                             </a>
-                            <a name="2"></a>
+                            <a href="javascript:;" name="2"></a>
                         </div>
                     </section>
                     <section id="homeSection2">
@@ -117,7 +117,7 @@ class App extends Component {
                             </div>
                         </div>
                     </section>
-                    <section id="homeSection2" className="w3-animate-opacity">
+                    <section id="homeSection2" className="animate__animated animate__fadeIn">
                         <div id="homeTitle">
                             <i className="fas fa-clock"></i>
                             <hr />
