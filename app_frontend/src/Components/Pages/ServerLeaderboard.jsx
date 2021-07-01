@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Base from '../../Modules/Base';
 import Navbar from '../Partials/Navbar';
+import Footer from '../Partials/Footer';
 import Loader from '../Partials/Loader';
 import Chart from './../../Modules/Chart';
 import axios from 'axios';
@@ -101,7 +102,7 @@ class ServerLeaderboard extends Component {
                                             let track = (window.location.href).split("/")[5];
                                             serverName = serverName.split("#")[0];
                                             track = track.split("#")[0];
-                                            let driverLink = "/serverDetail/" + serverName + "/" + track +  "/" + time.tim_driverName;
+                                            let driverLink = "/serverDetail/" + serverName + "/" + track + "/" + time.tim_driverName;
                                             return (
                                                 <Link className="linkTable" to={driverLink}>
                                                     <tr>
@@ -207,9 +208,9 @@ class ServerLeaderboard extends Component {
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
-
                         </div>
                     </section>
+                    <Footer />
                 </div>
             </div >
         )
