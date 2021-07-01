@@ -17,7 +17,8 @@ class ServerDetail extends Component {
             bestDriverTime: 0,
             bestTime: 0,
             avgSpeed: 0,
-            totalLaps: 0
+            totalLaps: 0,
+            bestSectors: []
         }
     }
 
@@ -32,8 +33,8 @@ class ServerDetail extends Component {
 
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverDetail/${serverName}/${track}/${driverName}`)
             .then(res => {
-                this.setState({ bestDriverTime: res.data[0], bestTime: res.data[1], times: res.data[2], avgSpeed: res.data[3], totalLaps: res.data[4] })
-                console.log(res);
+                this.setState({ bestDriverTime: res.data[0], bestTime: res.data[1], times: res.data[2], avgSpeed: res.data[3], totalLaps: res.data[4], bestSectors: res.data[5] })
+                ChartJS.lineChart("laps", this.state.times);
 
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
@@ -61,7 +62,7 @@ class ServerDetail extends Component {
                                                 <img src="/img/v_icon.png" alt="" />
                                             </div>
                                             <div className="col-6 col-md-3">
-                                                <img src={this.state.bestDriverTime.car_img} alt="" />
+                                                {<img src={this.state.bestDriverTime.car_img} alt="" />}
                                             </div>
                                             <div className="col-md-3"></div>
                                         </div>
@@ -98,13 +99,13 @@ class ServerDetail extends Component {
                                         <hr />
                                         <div className="row">
                                             <div className="col-12 col-md-4">
-                                                <h1>S1: {((this.state.bestDriverTime.tim_sectorOne === this.state.bestTime.tim_sectorOne ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorOne}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span>))}</h1>
+                                                <h1>S1: {((this.state.bestDriverTime.tim_sectorOne === this.state.bestSectors.bestSectorOne ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorOne}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorOne}</span>))}</h1>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h1>S2: {((this.state.bestDriverTime.tim_sectorTwo === this.state.bestTime.tim_sectorTwo ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTwo}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTwo}</span>))}</h1>
+                                                <h1>S2: {((this.state.bestDriverTime.tim_sectorTwo === this.state.bestSectors.bestSectorTwo ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTwo}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTwo}</span>))}</h1>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h1>S3: {((this.state.bestDriverTime.tim_sectorTree === this.state.bestTime.tim_sectorTree ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTree}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTree}</span>))}</h1>
+                                                <h1>S3: {((this.state.bestDriverTime.tim_sectorTree === this.state.bestSectors.bestSectorTree ? <span className="bestEle">{this.state.bestDriverTime.tim_sectorTree}</span> : <span className="personalBestEle">{this.state.bestDriverTime.tim_sectorTree}</span>))}</h1>
                                             </div>
                                         </div>
                                     </div>
@@ -143,18 +144,32 @@ class ServerDetail extends Component {
 
                                         this.state.times.map((time, i) => {
                                             return (
-                                                <tr>
+                                                <tr className={(time.tim_totalTime === this.state.bestDriverTime.tim_totalTime ? "bestTr" : "")}>
                                                     <td>{i + 1}</td>
                                                     <td>{time.tim_sectorOne}</td>
                                                     <td>{time.tim_sectorTwo}</td>
                                                     <td>{time.tim_sectorTree}</td>
-                                                    <td>{(time.tim_totalTime === this.state.bestDriverTime ? <span className="personalBestEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span> : Base.getFullTime((time.tim_totalTime * 1000)))}</td>
+                                                    <td>{Base.getFullTime((time.tim_totalTime * 1000))}</td>
                                                 </tr>
                                             )
                                         })
                                     }
                                 </tbody>
                             </table>
+                        </div>
+                    </section>
+                    <section id="sessionDetailSection2">
+                        <div id="sessionTitle">
+                            <i className="far fa-chart-bar"></i>
+                            <hr />
+                            <h3>LAP TREND:</h3>
+                        </div>
+                        <div id="chartContainer">
+                            <div className="row">
+                                <div className="col-12 col-lg-12">
+                                    <canvas id="laps"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 </div >

@@ -9,7 +9,7 @@ class Navbar extends Component {
                     <img className="navbar-brand" src="/img/helmet.png" alt="logo" />
                 </Link>
                 <div className="navbar-right justify-content-end">
-                    <Link to="/login">
+                    <Link to="/dashboard">
                     <h5><i className="fas fa-user-lock"></i> ADMIN AREA </h5>
                     </Link>
                 </div>

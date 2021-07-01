@@ -171,5 +171,8 @@ exports.serverDetail = (server, track, driverName) => {
     stmt = db.prepare(`SELECT count(tim_driverName) as tim_driverCount FROM (SELECT tim_driverName FROM Times INNER JOIN Sessions ON tim_sessionId = ses_id WHERE ses_serverName = ? AND ses_track = ? AND tim_driverName = ?);`);
     let driverCount = stmt.get(server, track, driverName);
 
-    return [bestDriverTime, bestDriver, times, avgSpeed, driverCount];
+    stmt = db.prepare(`SELECT min(tim_sectorOne) as bestSectorOne, min(tim_sectorTwo) as bestSectorTwo, min(tim_sectorTree) as bestSectorTree FROM (SELECT * FROM (SELECT *, sum(tim_sectorOne + tim_sectorTwo + tim_sectorTree) as tim_totalTime FROM Times INNER JOIN Sessions ON ses_id = tim_sessionId WHERE ses_serverName = ? AND ses_track = ? GROUP BY tim_driverName, tim_sectorOne, tim_sectorTwo, tim_sectorTree ORDER BY tim_totalTime ASC) GROUP BY tim_driverName ORDER BY tim_totalTime ASC);`);
+    let bestSectors = stmt.get(server, track);
+
+    return [bestDriverTime, bestDriver, times, avgSpeed, driverCount, bestSectors];
 }

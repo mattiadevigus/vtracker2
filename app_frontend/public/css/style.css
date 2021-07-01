@@ -565,3 +565,9 @@ ul {
 #drivername {
     text-transform: uppercase;
 }
+
+.bestTr > td{
+    background-color: rgb(138, 138, 138) !important;
+    color: #8b0000 !important;
+    font-weight: 500;
+}
