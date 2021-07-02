@@ -17,7 +17,8 @@ class ServerLeaderboard extends Component {
             totalDrivers: 0,
             bestTime: "",
             bestSessions: [],
-            trackInfo: ""
+            trackInfo: "",
+            usesCars: []
         }
     }
 
@@ -41,6 +42,7 @@ class ServerLeaderboard extends Component {
                 }, 1000);
 
                 Chart.lineChart("gapFirst", this.state.times);
+                Chart.doughnutChart("carUsed", [5, 3, 2, 5])
 
             })
     }
@@ -68,7 +70,7 @@ class ServerLeaderboard extends Component {
                             <div className="col-6 serverBodyContent">
                                 <div className="row">
                                     <div className="col-12 col-md-6">
-                                        <h3 id="serverInfo"> {(window.location.href.split("/")[4]).replace("%20", " ")}</h3>
+                                        <h3 id="serverInfo"> {this.state.trackInfo.ses_serverName}</h3>
                                     </div>
                                     <div className="col-12 col-md-6">
                                         <h3 id="serverInfo"> {this.state.trackInfo.tra_name}</h3>
@@ -108,7 +110,7 @@ class ServerLeaderboard extends Component {
                                                     <tr>
                                                         <td>{i + 1}</td>
                                                         <td>{time.tim_driverName}</td>
-                                                        <td><img id="carlogo" src={time.car_img} alt="car_logo" /></td>
+                                                        <td>{time.car_name}</td>
                                                         <td className="only-desktop">{((time.tim_sectorOne === this.state.bestSessions.bestSectorOne ? <span className="bestEle">{time.tim_sectorOne}</span> : time.tim_sectorOne))}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
@@ -191,12 +193,9 @@ class ServerLeaderboard extends Component {
                                         <h5>GAP FROM THE FIRST</h5>
                                     </div>
                                     <div class="carousel-item">
-                                        <i className="fa-4x fas fa-sync fa-spin"></i>
-                                        <h5>INCOMING</h5>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <i className="fa-4x fas fa-sync fa-spin"></i>
-                                        <h5>INCOMING</h5>
+                                        <canvas id="carUsed"></canvas>
+                                        <hr />
+                                        <h5>USED CARS</h5>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

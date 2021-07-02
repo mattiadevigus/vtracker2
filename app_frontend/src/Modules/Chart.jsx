@@ -1,8 +1,11 @@
 import cjs from 'chart.js';
 import Base from './Base';
+import cjszoom from 'chartjs-plugin-zoom';
+
+cjs.plugins.register(cjszoom);
 
 class Chart {
-    lineChart = (id, times) => {
+    lineChartAvg = (id, times) => {
         let arrTimes = [];
         let arrTimesFormatted = [];
         let avg = Base.calculateAvgArray(times);
@@ -61,7 +64,112 @@ class Chart {
                         },
 
                     }],
+                },
+                plugins: {
+                    zoom: {
+                      zoom: {
+                        wheel: {
+                          enabled: true,
+                        },
+                        pinch: {
+                          enabled: true
+                        },
+                        mode: 'xy',
+                      }
+                    }
                 }
+            }
+        })
+    }
+
+    lineChart = (id, times) => {
+        let arrTimes = [];
+        let arrTimesFormatted = [];
+        for (let time of times) {
+            arrTimes.push(time.tim_totalTime);
+            arrTimesFormatted.push(Base.getFullTime(time.tim_totalTime * 1000));
+        }
+        let ctx = document.getElementById(id).getContext('2d');
+        new cjs(ctx, {
+            type: 'line',
+            data: {
+                labels: arrTimesFormatted,
+                datasets: [
+                    {
+                        data: arrTimes,
+                        backgroundColor: [
+                            "rgba(139, 0, 0, .6)",
+                        ],
+                        borderColor: "rgba(139, 0, 0, 1)",
+                        fillColor: "rgba(210,27,71,0)",
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: false
+                },
+                plugins: {
+                    zoom: {
+                      zoom: {
+                        wheel: {
+                          enabled: true,
+                        },
+                        pinch: {
+                          enabled: true
+                        },
+                        mode: 'xy',
+                      }
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            color: 'transparent'
+                        },
+                        ticks: {
+                            beginAtZero: false,
+                            display: false
+                        },
+
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            color: 'rgba(139, 0, 0, .3)'
+                        },
+
+                    }],
+                }
+            }
+        })
+    }
+
+    doughnutChart = (id, cars) => {
+        let ctx = document.getElementById(id).getContext('2d');
+        new cjs(ctx, {
+            type: 'doughnut',
+            data: {
+                /* labels: arrTimesFormatted, */
+                datasets: [
+                    {
+                        data: cars,
+                        backgroundColor: "rgba(139, 0, 0, .6)",
+                        borderColor: "#15151e",
+                        fillColor: "rgba(210,27,71,0)",
+                        borderWidth: 2
+                    },
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: false
+                },
             }
         })
     }

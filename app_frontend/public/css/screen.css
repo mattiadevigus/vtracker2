@@ -127,6 +127,10 @@ and (min-width : 1401px) {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    .no-desktop {
+        display: none;
+    }
     
     .serverCol .colS:nth-child(1), .serverCol .colS:nth-child(2){
         border-right: 1px solid #8b0000;
@@ -135,5 +139,10 @@ and (min-width : 1401px) {
     .card-body .row {
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+
+    #drivername {
+        font-weight: 500;
+        font-size: 2rem;
     }
 }

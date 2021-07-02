@@ -145,12 +145,12 @@ exports.serverLeaderboard = (server, track) => {
     stmt = db.prepare(`SELECT min(tim_sectorOne) as bestSectorOne, min(tim_sectorTwo) as bestSectorTwo, min(tim_sectorTree) as bestSectorTree FROM (SELECT * FROM (SELECT *, sum(tim_sectorOne + tim_sectorTwo + tim_sectorTree) as tim_totalTime FROM Times INNER JOIN Sessions ON ses_id = tim_sessionId WHERE ses_serverName = ? AND ses_track = ? GROUP BY tim_driverName, tim_sectorOne, tim_sectorTwo, tim_sectorTree ORDER BY tim_totalTime ASC) GROUP BY tim_driverName ORDER BY tim_totalTime ASC);`);
     let bestSectors = stmt.get(server, track);
 
-    stmt = db.prepare(`SELECT * FROM Tracks WHERE tra_nameCode = ?;`);
-    let trackInfo = stmt.get(track);
+    stmt = db.prepare(`SELECT * FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode WHERE ses_serverName = ? AND tra_nameCode = ?;`);
+    let info = stmt.get(server, track);
 
     db.close();
 
-    return[times, bestTime, driverCount, bestSectors, trackInfo];
+    return[times, bestTime, driverCount, bestSectors, info];
 }
 
 exports.serverDetail = (server, track, driverName) => {

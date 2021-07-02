@@ -116,6 +116,7 @@ footer img {
     position: absolute;
     margin: 0 auto;
     bottom: 50px;
+    background-color: none;
 }
 
 .arrow{
