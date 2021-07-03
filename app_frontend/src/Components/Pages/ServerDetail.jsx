@@ -80,14 +80,13 @@ class ServerDetail extends Component {
                                             </div>
                                             <div className="col-md-3"></div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-12">
                                     <div className="card-body">
                                         <div className="row">
                                             <div className="col-12 col-md-4">
-                                                <h3>PERSONAL BEST TIME: <span className="bestEle">{Base.getFullTime(this.state.bestDriverTime.tim_totalTime * 1000)}</span></h3>
+                                                <h3>PB TIME: {this.state.bestDriverTime.tim_totalTime === this.state.bestTime.tim_totalTime ? <span className="bestEle">{Base.getFullTime(this.state.bestDriverTime.tim_totalTime * 1000)}</span> : <span>{Base.getFullTime(this.state.bestDriverTime.tim_totalTime * 1000)}</span>}</h3>
                                             </div>
                                             <div className="col-12 col-md-4">
                                                 <h3>AVG SPEED: <span className="baseEle">{this.state.avgSpeed}</span> Km/h</h3>

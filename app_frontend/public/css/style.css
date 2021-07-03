@@ -46,7 +46,7 @@ nav span {
 }
 
 nav img {
-    width: 10em;
+    width: 8em;
     padding-left: 0.4em;
 }
 
@@ -272,7 +272,6 @@ footer img {
 .baseEle {
     text-transform: uppercase;
     font-weight: 600;
-    color: #8b0000;
 }
 
 .personalBestEle {

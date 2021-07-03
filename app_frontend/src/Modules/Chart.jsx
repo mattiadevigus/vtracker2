@@ -150,15 +150,28 @@ class Chart {
     }
 
     doughnutChart = (id, cars) => {
+
+        let arrCount = [];
+        let arrCars = [];
+        let arrColors = [];
+
+        for(let car of cars) {
+            arrCount.push(car.car_count);
+            arrCars.push(car.car_name);
+            arrColors.push(car.car_color);
+        }
+
+        console.log(arrCount);
+
         let ctx = document.getElementById(id).getContext('2d');
         new cjs(ctx, {
             type: 'doughnut',
             data: {
-                /* labels: arrTimesFormatted, */
+                labels: arrCars,
                 datasets: [
                     {
-                        data: cars,
-                        backgroundColor: "rgba(139, 0, 0, .6)",
+                        data: arrCount,
+                        backgroundColor: arrColors,
                         borderColor: "#15151e",
                         fillColor: "rgba(210,27,71,0)",
                         borderWidth: 2

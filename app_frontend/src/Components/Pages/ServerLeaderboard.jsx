@@ -18,7 +18,7 @@ class ServerLeaderboard extends Component {
             bestTime: "",
             bestSessions: [],
             trackInfo: "",
-            usesCars: []
+            usedCars: []
         }
     }
 
@@ -35,14 +35,14 @@ class ServerLeaderboard extends Component {
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverLeaderboard/${server}/${track}`)
             .then((res) => {
                 console.log(res);
-                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4] });
+                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4], usedCars: res.data[5] });
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
                     document.getElementById("normalPage").style.display = "block";
                 }, 1000);
 
                 Chart.lineChart("gapFirst", this.state.times);
-                Chart.doughnutChart("carUsed", [5, 3, 2, 5])
+                Chart.doughnutChart("carUsed", this.state.usedCars);
 
             })
     }
@@ -64,10 +64,10 @@ class ServerLeaderboard extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-3 serverBodyContent">
+                            <div className="col-md-3 only-desktop">
                                 <img id="flagTitle" src={this.state.trackInfo.tra_track} alt="" />
                             </div>
-                            <div className="col-6 serverBodyContent">
+                            <div className="col-md-6">
                                 <div className="row">
                                     <div className="col-12 col-md-6">
                                         <h3 id="serverInfo"> {this.state.trackInfo.ses_serverName}</h3>
@@ -77,7 +77,7 @@ class ServerLeaderboard extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-3">
+                            <div className="col-md-3 only-desktop">
                                 <img id="flagTitle" src={this.state.trackInfo.tra_flag} alt="" />
                             </div>
                         </div>
@@ -88,7 +88,7 @@ class ServerLeaderboard extends Component {
                                     <tr>
                                         <th>#</th>
                                         <th>Full Name</th>
-                                        <th>Car</th>
+                                        <th className="only-desktop">Car</th>
                                         <th className="only-desktop">S1</th>
                                         <th className="only-desktop">S2</th>
                                         <th className="only-desktop">S3</th>
@@ -110,7 +110,7 @@ class ServerLeaderboard extends Component {
                                                     <tr>
                                                         <td>{i + 1}</td>
                                                         <td>{time.tim_driverName}</td>
-                                                        <td>{time.car_name}</td>
+                                                        <td className="only-desktop">{time.car_name}</td>
                                                         <td className="only-desktop">{((time.tim_sectorOne === this.state.bestSessions.bestSectorOne ? <span className="bestEle">{time.tim_sectorOne}</span> : time.tim_sectorOne))}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
@@ -124,7 +124,7 @@ class ServerLeaderboard extends Component {
                                     }
                                 </tbody>
                             </table>
-                            <div className="only-desktop" id="tableFooter">
+                            <div className="only-full-desktop" id="tableFooter">
                                 <h5>OPTIMAL TIME: <span className="bestEle"> {Base.getFullTime((this.state.bestSessions.bestSectorOne * 1000) + (this.state.bestSessions.bestSectorTwo * 1000) + (this.state.bestSessions.bestSectorTree * 1000))} </span> </h5>
                             </div>
                         </div>

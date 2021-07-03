@@ -148,9 +148,12 @@ exports.serverLeaderboard = (server, track) => {
     stmt = db.prepare(`SELECT * FROM Sessions INNER JOIN Tracks ON ses_track = tra_nameCode WHERE ses_serverName = ? AND tra_nameCode = ?;`);
     let info = stmt.get(server, track);
 
+    stmt = db.prepare(`SELECT count(car_carsUsed) as car_count, car_name, car_color FROM (SELECT count(tim_carModel) as car_carsUsed, car_name, car_color FROM Times INNER JOIN Cars ON tim_carModel = car_id INNER JOIN Sessions ON tim_sessionId = ses_id WHERE ses_serverName = ? AND ses_track = ? GROUP BY tim_driverName) GROUP BY car_name`);
+    let cars = stmt.all(server, track);
+
     db.close();
 
-    return[times, bestTime, driverCount, bestSectors, info];
+    return[times, bestTime, driverCount, bestSectors, info, cars];
 }
 
 exports.serverDetail = (server, track, driverName) => {
