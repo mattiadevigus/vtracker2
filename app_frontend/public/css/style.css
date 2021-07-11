@@ -34,10 +34,15 @@ a:hover {
 }
 
 nav {
-    border-bottom: 1px solid #8b0000;
+    border-bottom: 2px solid #8b0000;
     background-color: #15151e;
-    box-shadow: 0 0 5px #080808 ;
+    box-shadow: 0 0 10px #080808 ;
     padding: 0 !important;
+}
+
+nav .row {
+    padding: 10px;
+    margin: 0 auto !important;
 }
 
 nav span {
@@ -308,7 +313,7 @@ canvas {
 }
 
 #flagTitle {
-    width: 25%;
+    width: 20%;
     padding: 0;
 }
 
@@ -354,7 +359,7 @@ canvas {
 }
 
 #formSection form {
-    max-width: 25%;
+    max-width: 35%;
     padding: 50px;
     background-color: #15151e;
     border: 4px solid #c5c5c5;
@@ -574,4 +579,8 @@ ul {
 
 .carousel-item {
     vertical-align: middle;
+}
+
+.modal-content {
+    background-color: #15151e !important;
 }

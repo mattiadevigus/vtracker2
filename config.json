@@ -2,6 +2,7 @@
     "port": 9009,
     "resPath": "C:\\Users\\matti\\Desktop\\Scottish Gaming League Server\\results",
     "user" : "admin",
-    "password" : "admin",
-    "updateTime": "1200000"
+    "password" : "xdxdxdxd",
+    "updateTime": "1200000",
+    "openOnStart": false
 }

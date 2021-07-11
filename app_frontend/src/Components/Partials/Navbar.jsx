@@ -14,6 +14,16 @@ class Navbar extends Component {
                     </Link>
                 </div>
             </nav>
+            /* <nav className="navbar fixed-bottom">
+                <div className="row">
+                    <div className="col-6">
+                        <Link to="/"><i className="fas fa-home fa-2x"></i></Link>
+                    </div>
+                    <div className="col-6">
+                        <Link to="/login"><i className="fas fa-user-lock fa-2x"></i></Link>
+                    </div>
+                </div>
+            </nav> */
         )
     }
 }

@@ -43,9 +43,9 @@ class Login extends Component {
     render = () => {
         return (
             <div>
-                <Navbar />
+                {/* <Navbar /> */}
                 <section id="formSection">
-                    <form method="post" className="snimate_animated animate__bounceIn" onSubmit={this.submitHandle}>
+                    <form method="post" className="animate_animated animate__bounceIn" onSubmit={this.submitHandle}>
 
                         <img src="/img/helmet.png" alt="logo" />
                         <hr />
