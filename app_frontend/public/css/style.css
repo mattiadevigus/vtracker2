@@ -571,3 +571,7 @@ ul {
     color: #8b0000 !important;
     font-weight: 500;
 }
+
+.carousel-item {
+    vertical-align: middle;
+}

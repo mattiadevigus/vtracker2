@@ -151,9 +151,13 @@ exports.serverLeaderboard = (server, track) => {
     stmt = db.prepare(`SELECT count(car_carsUsed) as car_count, car_name, car_color FROM (SELECT count(tim_carModel) as car_carsUsed, car_name, car_color FROM Times INNER JOIN Cars ON tim_carModel = car_id INNER JOIN Sessions ON tim_sessionId = ses_id WHERE ses_serverName = ? AND ses_track = ? GROUP BY tim_driverName) GROUP BY car_name`);
     let cars = stmt.all(server, track);
 
+    stmt = db.prepare(`SELECT avg(tim_totalTime) as car_avg, car_name FROM (SELECT * FROM(SELECT *, sum(tim_sectorOne + tim_sectorTwo + tim_sectorTree) as tim_totalTime FROM Times INNER JOIN Cars on tim_carModel = car_id INNER JOIN Sessions ON ses_id = tim_sessionId WHERE ses_serverName = ? AND ses_track = ? GROUP BY tim_driverName, tim_sectorOne, tim_sectorTwo, tim_sectorTree ORDER BY tim_totalTime ASC) GROUP BY tim_driverName ORDER BY tim_totalTime ASC) GROUP BY car_name ORDER BY car_avg ASC LIMIT 3;`)
+    let bestAvgCar = stmt.get(server, track);
+    let avgCars = stmt.all(server, track);
+
     db.close();
 
-    return[times, bestTime, driverCount, bestSectors, info, cars];
+    return[times, bestTime, driverCount, bestSectors, info, cars, bestAvgCar, avgCars];
 }
 
 exports.serverDetail = (server, track, driverName) => {

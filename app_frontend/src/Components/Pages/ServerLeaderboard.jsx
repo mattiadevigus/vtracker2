@@ -18,7 +18,9 @@ class ServerLeaderboard extends Component {
             bestTime: "",
             bestSessions: [],
             trackInfo: "",
-            usedCars: []
+            usedCars: [],
+            bestCarAvg: [],
+            avgCars: []
         }
     }
 
@@ -35,7 +37,7 @@ class ServerLeaderboard extends Component {
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverLeaderboard/${server}/${track}`)
             .then((res) => {
                 console.log(res);
-                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4], usedCars: res.data[5] });
+                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4], usedCars: res.data[5], bestCarAvg: res.data[6], avgCars: res.data[7] });
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
                     document.getElementById("normalPage").style.display = "block";
@@ -109,7 +111,7 @@ class ServerLeaderboard extends Component {
                                                 <Link className="linkTable" to={driverLink}>
                                                     <tr>
                                                         <td>{i + 1}</td>
-                                                        <td>{time.tim_driverName}</td>
+                                                        <td style={{borderLeft:`4px solid ${time.car_color}`}}>{time.tim_driverName}</td>
                                                         <td className="only-desktop">{time.car_name}</td>
                                                         <td className="only-desktop">{((time.tim_sectorOne === this.state.bestSessions.bestSectorOne ? <span className="bestEle">{time.tim_sectorOne}</span> : time.tim_sectorOne))}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
@@ -163,18 +165,13 @@ class ServerLeaderboard extends Component {
                             </div>
                             <br /><br />
                             <div className="row">
-                                <div className="col-lg-1"></div>
-                                <div className="col-6 col-lg-5">
-                                    <i className="fa-4x fas fa-sync fa-spin"></i>
+                                <div className="col-lg-3"></div>
+                                <div className="col-12col-lg-6">
+                                    <h1>{this.state.bestCarAvg.car_name}</h1>
                                     <hr />
-                                    <h5>INCOMING</h5>
+                                    <h3 id="statSession">BEST CAR</h3>
                                 </div>
-                                <div className="col-6 col-lg-5">
-                                    <i className="fa-4x fas fa-sync fa-spin"></i>
-                                    <hr />
-                                    <h5>INCOMING</h5>
-                                </div>
-                                <div className="col-lg-1"></div>
+                                <div className="col-lg-3"></div>
                             </div>
                         </div>
                     </section>
@@ -196,6 +193,30 @@ class ServerLeaderboard extends Component {
                                         <canvas id="carUsed"></canvas>
                                         <hr />
                                         <h5>USED CARS</h5>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div className="container">
+                                            <table id="sessionList">
+                                                <thead>
+                                                    <th>#</th>
+                                                    <th>Car Model</th>
+                                                    <th>Avg Time</th>
+                                                </thead>
+                                                <tbody>
+                                                    {this.state.avgCars.map((cars, i) => {
+                                                        return (
+                                                            <tr>
+                                                                <td>{i + 1}</td>
+                                                                <td>{cars.car_name}</td>
+                                                                <td>{Base.getFullTime(cars.car_avg * 1000)}</td>
+                                                            </tr>
+                                                        )
+                                                    })}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <hr />
+                                        <h5>TOP 3 CARS AVG</h5>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
