@@ -58,13 +58,6 @@ class ServerLeaderboard extends Component {
                 <div id="normalPage">
                     <Navbar />
                     <section id="serverSection">
-                        <div id="sessionTitle" className="only-desktop">
-                            <div className="row">
-                                <div className="col-12">
-                                    <h5>SERVER INFO</h5>
-                                </div>
-                            </div>
-                        </div>
                         <div className="row">
                             <div className="col-md-3 only-desktop">
                                 <img id="flagTitle" src={this.state.trackInfo.tra_track} alt="" />

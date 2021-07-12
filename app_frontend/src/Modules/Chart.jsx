@@ -1,8 +1,5 @@
 import cjs from 'chart.js';
 import Base from './Base';
-import cjszoom from 'chartjs-plugin-zoom';
-
-cjs.plugins.register(cjszoom);
 
 class Chart {
     lineChartAvg = (id, times) => {
@@ -67,15 +64,14 @@ class Chart {
                 },
                 plugins: {
                     zoom: {
-                      zoom: {
-                        wheel: {
-                          enabled: true,
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'
                         },
-                        pinch: {
-                          enabled: true
-                        },
-                        mode: 'xy',
-                      }
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',
+                        }
                     }
                 }
             }
@@ -114,19 +110,6 @@ class Chart {
                 tooltips: {
                     enabled: false
                 },
-                plugins: {
-                    zoom: {
-                      zoom: {
-                        wheel: {
-                          enabled: true,
-                        },
-                        pinch: {
-                          enabled: true
-                        },
-                        mode: 'xy',
-                      }
-                    }
-                },
                 scales: {
                     yAxes: [{
                         gridLines: {
@@ -144,7 +127,19 @@ class Chart {
                         },
 
                     }],
-                }
+                },
+                plugins: {
+                    zoom: {
+                        pan: {
+                            enabled: true,
+                            mode: 'xy'
+                        },
+                        zoom: {
+                            enabled: true,
+                            mode: 'xy',
+                        }
+                    }
+                },
             }
         })
     }
@@ -155,7 +150,7 @@ class Chart {
         let arrCars = [];
         let arrColors = [];
 
-        for(let car of cars) {
+        for (let car of cars) {
             arrCount.push(car.car_count);
             arrCars.push(car.car_name);
             arrColors.push(car.car_color);

@@ -54,7 +54,7 @@ class App extends Component {
                                     <span></span>
                                 </div>
                             </a>
-                            <a href="javascript:;" name="2"></a>
+                            <a name="2"></a>
                         </div>
                     </section>
                     <section id="homeSection2">
