@@ -3,6 +3,8 @@ import Navbar from '../Partials/Navbar';
 import Footer from '../Partials/Footer';
 import { Link } from 'react-router-dom';
 import Loader from '../Partials/Loader';
+import Admin from './Modals/Admin';
+import Server from './Modals/Server';
 
 class Dashboard extends Component {
 
@@ -29,7 +31,7 @@ class Dashboard extends Component {
                     <Navbar />
                     <section id="dashboardSection" className="animate__animated animate__fadeIn">
                         <div id="sessionTitle">
-                            <h1>PRIVATE AREA</h1>
+                            <h1>PRIVATE AREA (WIP)</h1>
                         </div>
                         <div className="row w-100">
                             <div className="col-12 col-md-4">
@@ -65,60 +67,8 @@ class Dashboard extends Component {
                         </div>
                     </section>
                     <Footer />
-
-                    <div className="modal animate_animated animate__bounceIn" id="admin">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5>Admin settings</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <div className="row">
-                                        <div className="col-12">
-                                            <Link onClick={() => {
-                                                if (window.confirm("Proceeding with the reset of the db, all the times and sessions previously saved will be deleted. Proceed?")) {
-                                                    alert("Deleted");
-                                                }
-                                            }}><i className="fas fa-recycle"></i> Reset DB</Link>
-                                        </div>
-                                        <div className="col-12">
-                                            <Link onClick={() => {
-                                                let admin = window.prompt("Admin:");
-                                                let password = window.prompt("Password:");
-                                            }}><i className="fas fa-pencil-alt"></i> Change your credentials</Link>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="modal animate_animated animate__bounceIn" id="server">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5>Servers settings</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <div className="row">
-                                        <div className="col-12">
-                                            <Link onClick={() => {
-                                                let path = window.prompt("Path:");
-                                            }}><i className="fas fa-pencil-alt"></i> Change the results folder path</Link>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Admin />
+                    <Server />
                 </div >
             </div>
         )

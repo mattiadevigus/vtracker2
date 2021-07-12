@@ -180,12 +180,14 @@ class ServerLeaderboard extends Component {
                                     <div class="carousel-item active">
                                         <canvas id="gapFirst"></canvas>
                                         <hr />
-                                        <h5>GAP FROM THE FIRST</h5>
+                                        <h5>GAP FROM THE FIRST DRIVER</h5>
+                                        <span id="chartDescription">Graphical representation of the gap between the first driver and all of the following</span>
                                     </div>
                                     <div class="carousel-item">
                                         <canvas id="carUsed"></canvas>
                                         <hr />
                                         <h5>USED CARS</h5>
+                                        <span id="chartDescription">Graphical representation of the number of cars used grouped by models</span>
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

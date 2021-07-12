@@ -34,7 +34,7 @@ class ServerDetail extends Component {
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverDetail/${serverName}/${track}/${driverName}`)
             .then(res => {
                 this.setState({ bestDriverTime: res.data[0], bestTime: res.data[1], times: res.data[2], avgSpeed: res.data[3], totalLaps: res.data[4], bestSectors: res.data[5] })
-                ChartJS.lineChart("laps", this.state.times);
+                ChartJS.lineChartAvg("laps", this.state.times);
 
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
@@ -167,6 +167,10 @@ class ServerDetail extends Component {
                             <div className="row">
                                 <div className="col-12 col-lg-12">
                                     <canvas id="laps"></canvas>
+                                    <hr />
+                                    <span id="chartDescription">Graphical representation of the performance of the driver's laps during server sessions.</span>
+                                    <br />
+                                    <span>The white line represents the average of the previous laps</span>
                                 </div>
                             </div>
                         </div>

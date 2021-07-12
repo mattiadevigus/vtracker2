@@ -584,3 +584,7 @@ ul {
 .modal-content {
     background-color: #15151e !important;
 }
+
+#chartDescription {
+    color: #808080 !important
+}

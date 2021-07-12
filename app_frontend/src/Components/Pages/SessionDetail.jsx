@@ -29,7 +29,7 @@ class Chart extends Component {
             .then((res) => {
                 console.log(res);
                 this.setState({ times: res.data[0], avgSpeed: res.data[1], bestTime: res.data[2], bestDriverTime: res.data[3] });
-                ChartJS.lineChart("laps", this.state.times);
+                ChartJS.lineChartAvg("laps", this.state.times);
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
                     document.getElementById("normalPage").style.display = "block";
@@ -115,6 +115,10 @@ class Chart extends Component {
                                     <i className="far fa-chart-bar"></i>
                                     <h3>LAP TREND:</h3>
                                     <canvas id="laps"></canvas>
+                                    <hr />
+                                    <span id="chartDescription">Graphical representation of the performance of the driver's laps during server sessions.</span>
+                                    <br />
+                                    <span>The white line represents the average of the previous laps</span>
                                 </div>
                             </div>
                         </div>

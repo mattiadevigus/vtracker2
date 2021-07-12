@@ -35,3 +35,11 @@ exports.getServerLeaderboard = (req, res) => {
 exports.getServerDetail = (req, res) => {
     res.send(db.serverDetail(req.params.server, req.params.track, req.params.driver));
 }
+
+exports.updateServerSettings = (req, res) => {
+    const path = req.params.path;
+    let parameters = config.getAllConfigParameters();
+    parameters.resPath = path;
+    config.writeConfigFile(parameters);
+    res.send(true);
+}

@@ -22,7 +22,10 @@ router
     .post("/serverLeaderboard/:server/:track", controllerBasics.getServerLeaderboard);
 
 router
-    .post("/serverDetail/:server/:track/:driver", controllerBasics.getServerDetail)
+    .post("/serverDetail/:server/:track/:driver", controllerBasics.getServerDetail);
+
+router
+    .post("/serverSettings/:path", controllerBasics.updateServerSettings);
 
 router
     .get("*", (req, res) => {
