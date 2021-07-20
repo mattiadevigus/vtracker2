@@ -47,8 +47,6 @@ class Session extends Component {
                     <Navbar />
                     <section id="sessionSection">
                         <div id="sessionTitle">
-                            <i className="fas fa-poll-h"></i>
-                            <hr />
                             <h1>TIMETABLE</h1>
                         </div>
                         <div id="sessionContainer">
@@ -103,8 +101,6 @@ class Session extends Component {
                     <a name="2"></a>
                     <section id="sessionSection2">
                         <div id="sessionTitle">
-                            <i className="fas fa-poll-h"></i>
-                            <hr />
                             <h1>DETAILS</h1>
                         </div>
                         <div id="sessionContainer">

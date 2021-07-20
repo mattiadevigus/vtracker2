@@ -2,12 +2,13 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Base from './../../../Modules/Base';
+import Path from './Path';
 
 class Server extends Component {
     render = () => {
         return (
             <div className="modal animate_animated animate__bounceIn" id="server">
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5>Servers settings</h5>
@@ -16,7 +17,7 @@ class Server extends Component {
                         <div className="modal-body">
                             <div className="row">
                                 <div className="col-12">
-                                    <Link><i className="fas fa-pencil-alt"></i> Change the results folder path</Link>
+                                    <Link data-bs-toggle="modal" data-bs-target="#path"><i className="fas fa-pencil-alt"></i> Change the results folder path</Link>
                                 </div>
                             </div>
                         </div>
@@ -25,6 +26,7 @@ class Server extends Component {
                         </div>
                     </div>
                 </div>
+                <Path />
             </div>
         )
     }

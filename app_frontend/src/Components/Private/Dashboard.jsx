@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 import Loader from '../Partials/Loader';
 import Admin from './Modals/Admin';
 import Server from './Modals/Server';
+import Credentials from './Modals/ResetDB';
+import Base from '../../Modules/Base';
 
 class Dashboard extends Component {
 
     componentDidMount = () => {
         document.getElementById("normalPage").style.display = "none";
 
-        if (sessionStorage.getItem("token") === null) {
-            window.location.replace("/login");
-        }
+        Base.checkLogin();
 
         setTimeout(() => {
             document.getElementById("loader").style.display = "none";
@@ -69,6 +69,7 @@ class Dashboard extends Component {
                     <Footer />
                     <Admin />
                     <Server />
+                    <Credentials />
                 </div >
             </div>
         )

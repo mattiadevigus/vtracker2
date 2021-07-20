@@ -43,3 +43,32 @@ exports.updateServerSettings = (req, res) => {
     config.writeConfigFile(parameters);
     res.send(true);
 }
+
+exports.checkLogin = (req, res) => {
+    const parameters = config.getAllConfigParameters();
+    if (parameters.password === req.body.pass) {
+        res.send(true);
+    } else {
+        res.send(false);
+    }
+}
+
+exports.resetDB = (req, res) => {
+    res.send(db.resetDB());
+}
+
+exports.editCredentials = (req, res) => {
+    let parameters = config.getAllConfigParameters();
+    parameters.user = req.body.username;
+    parameters.password = req.body.password;
+    config.writeConfigFile(parameters);
+    res.send(true);
+}
+
+exports.editPath = (req, res) => {
+    console.log(req.body);
+    let parameters = config.getAllConfigParameters();
+    parameters.resPath = (req.body.path).replace(/\\"/g, '"');
+    config.writeConfigFile(parameters);
+    res.send(true);
+}

@@ -5,6 +5,7 @@ import Footer from './../Partials/Footer';
 import Loader from '../Partials/Loader';
 import Base from '../../Modules/Base';
 import axios from 'axios';
+import Update from '../Private/Modals/Update';
 
 class App extends Component {
 
@@ -45,7 +46,10 @@ class App extends Component {
                             <hr />
                             <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by Mattia Devigus</p>
                             <hr />
-                            <h1>BETA 3</h1>
+                            <h1>BETA 4</h1>
+                            <Link data-bs-toggle="modal" data-bs-target="#update">
+                                <button className="btn btn-danger">What's new</button>
+                            </Link>
                         </div>
                         <div id="arrowCont">
                             <a href="#2">
@@ -59,8 +63,6 @@ class App extends Component {
                     </section>
                     <section id="homeSection2">
                         <div id="homeTitle">
-                            <i className="fas fa-clock"></i>
-                            <hr />
                             <h1>SERVER LIST</h1>
                         </div>
                         <div id="homeContainer2">
@@ -96,8 +98,6 @@ class App extends Component {
                     </section>
                     <section id="homeSection2">
                         <div id="homeTitle">
-                            <i className="fas fa-clock"></i>
-                            <hr />
                             <h1>TOTAL RESULTS PER TRACK</h1>
                         </div>
                         <div id="homeContainer2">
@@ -119,8 +119,6 @@ class App extends Component {
                     </section>
                     <section id="homeSection2" className="animate__animated animate__fadeIn">
                         <div id="homeTitle">
-                            <i className="fas fa-clock"></i>
-                            <hr />
                             <h1>SESSIONS LIST</h1>
                         </div>
                         <div id="homeContainer2">
@@ -155,7 +153,9 @@ class App extends Component {
                     </section>
                     <Footer />
                 </div >
+                <Update />
             </div>
+
         )
     }
 }

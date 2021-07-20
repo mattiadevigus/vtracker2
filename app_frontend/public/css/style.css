@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
+
+
 body {
     background-color: #15151e;
     color: #c5c5c5;
+    font-family: 'Prompt', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p, span {
+    font-family: 'Prompt', sans-serif !important;
 }
 
 h5 {
@@ -30,7 +38,7 @@ a:hover {
 }
   
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #8b0000;
 }
 
 nav {
@@ -199,7 +207,7 @@ footer img {
     width: 100%;
     text-align: center;
     color: white;
-    box-shadow: 0 0 5px rgb(0, 0, 0);
+    box-shadow: 0 0 10px black;
 }
 
 #sessionList thead {
@@ -217,13 +225,14 @@ footer img {
     table-layout:fixed;
 }
 
-#sessionList th, #sessionList td {
-    padding: 20px;
+#sessionList th{
+    padding: 30px;
 }
 
 #sessionList td {
+    padding: 30px;
     vertical-align: middle;
-    color: #c5c5c5;
+    color: #fff;
     text-align: center;
     background-color: #15151e;
 }
@@ -248,9 +257,9 @@ footer img {
 }
 
 #tableFooter {
-    background-color: #15151e;
-    padding: 10px;
     box-shadow: 0 0 5px rgb(0, 0, 0);
+    border-top: 1px solid #15151e;
+    padding: 10px;
 }
 
 #chartContainer {
@@ -276,7 +285,7 @@ footer img {
 
 .baseEle {
     text-transform: uppercase;
-    font-weight: 600;
+    color: #8b0000;
 }
 
 .personalBestEle {
@@ -378,7 +387,7 @@ canvas {
     margin-top: 30px;
 }
 
-#formSection form input {
+form input {
     width: 100%;
     background-color: #15151e;
     border: 1px solid #636363;
@@ -388,24 +397,22 @@ canvas {
     margin-bottom: 15px;
     transition: .2s;
     color: white;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
 }
 
-#formSection form input::placeholder {
+form input::placeholder {
     text-align: center;
+    font-weight: 400;
 }
 
-#formSection form input:hover {
+form input:hover {
     border: 1px solid white;
     border-radius: 15px;
 }
 
-#formSection form input:focus::placeholder  {
-    color: #b9b9b9;
-}
 
-#formSection form input:focus {
+form input:focus {
     border: 1px solid #8b0000;
     border-radius: 5px;
 }
@@ -441,12 +448,12 @@ canvas {
 }
 
 .linkTable:hover td{
-    background-color: rgba(139, 0, 0, .7) !important;
+    background-color: rgba(44, 44, 61, 0.322) !important;
     transition: .3s;
 }
 
 .linkTable:focus td{
-    background-color: rgba(139, 0, 0, 1) !important;
+    background-color: rgba(82, 82, 112, 0.322) !important;
     transition: .3s;
 }
 
@@ -572,8 +579,7 @@ ul {
 }
 
 .bestTr > td{
-    background-color: rgb(138, 138, 138) !important;
-    color: #8b0000 !important;
+    color: #129e00 !important;
     font-weight: 500;
 }
 
@@ -587,4 +593,25 @@ ul {
 
 #chartDescription {
     color: #808080 !important
+}
+
+ul {
+    margin: 10px;
+}
+
+.modal-body i {
+    color: #8b0000;
+}
+
+.center-icon {
+    margin: 0 auto !important;
+}
+
+#formModal input::placeholder {
+    text-align: center;
+    font-weight: 400;
+}
+
+.modal-body i {
+    margin: 20px !important;
 }

@@ -28,6 +28,18 @@ router
     .post("/serverSettings/:path", controllerBasics.updateServerSettings);
 
 router
+    .post("/checkLogin", controllerBasics.checkLogin);
+
+router
+    .post("/resetDB", controllerBasics.resetDB);
+
+router
+    .post("/editCredentials", controllerBasics.editCredentials);
+
+router
+    .post("/editPath", controllerBasics.editPath);
+
+router
     .get("*", (req, res) => {
         res.sendFile(path.join(__dirname, '../app_frontend/build/index.html'));
     });

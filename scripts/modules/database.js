@@ -183,3 +183,17 @@ exports.serverDetail = (server, track, driverName) => {
 
     return [bestDriverTime, bestDriver, times, avgSpeed, driverCount, bestSectors];
 }
+
+exports.resetDB = () => {
+    const db = new sqlite(pathDb);
+
+    let stmt = db.prepare(`DELETE FROM Sessions`);
+    stmt.run();
+
+    stmt = db.prepare(`DELETE FROM Times`);
+    stmt.run();
+    
+    db.close();
+
+    return true;
+}

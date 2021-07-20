@@ -34,7 +34,7 @@ class Login extends Component {
                     document.getElementById("loading").style.display = "none";
                     this.setState({ errorMessage: "Wrong Credentials!" });
                 } else {
-                    sessionStorage.setItem("token", this.state.username);
+                    sessionStorage.setItem("token", this.state.password);
                     window.location.replace("/dashboard");
                 }
             })

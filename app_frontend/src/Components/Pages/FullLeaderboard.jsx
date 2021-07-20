@@ -46,9 +46,7 @@ class FullLeaderboard extends Component {
                     <Navbar />
                     <section id="sessionSection">
                         <div id="sessionTitle">
-                            <img id="flagTitle" src={this.state.trackInfo.tra_track} alt="" />
-                            <hr />
-                            <h1>FULL LEADERBOARD</h1>
+                            <h1>FULL LEADERBOARD - {this.state.trackInfo.tra_name}</h1>
                         </div>
                         <div id="sessionContainer">
                             <table id="sessionList">
@@ -101,8 +99,6 @@ class FullLeaderboard extends Component {
                     <a name="2"></a>
                     <section id="sessionSection2">
                         <div id="sessionTitle">
-                            <i className="fas fa-poll-h"></i>
-                            <hr />
                             <h1>DETAILS</h1>
                         </div>
                         <div id="sessionContainer">

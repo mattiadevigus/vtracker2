@@ -47,8 +47,6 @@ class Chart extends Component {
                     <section id="sessionDetailSection">
                         <Navbar />
                         <div id="sessionTitle">
-                            <i className="fas fa-poll-h"></i>
-                            <hr />
                             <h1>LAPS OF <span className="baseEle">{this.state.driverName}</span></h1>
                         </div>
                         <div id="sessionContainer">
@@ -84,6 +82,7 @@ class Chart extends Component {
                             <a href="#2">
                                 <div className="arrow">
                                     <span></span>
+                                    <span></span>
                                 </div>
                             </a>
                         </div>
@@ -91,8 +90,6 @@ class Chart extends Component {
                     <a name="2"></a>
                     <section id="sessionDetailSection2">
                         <div id="sessionTitle">
-                            <i className="fas fa-chart-line"></i>
-                            <hr />
                             <h1>STATS</h1>
                         </div>
                         <div id="chartContainer">

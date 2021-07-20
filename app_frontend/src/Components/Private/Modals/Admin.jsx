@@ -1,11 +1,13 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ResetDB from './ResetDB';
+import Credentials from './Credentials';
 
 class Admin extends Component {
     render = () => {
         return (
             <div className="modal animate_animated animate__bounceIn" id="admin">
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5>Admin settings</h5>
@@ -14,10 +16,10 @@ class Admin extends Component {
                         <div className="modal-body">
                             <div className="row">
                                 <div className="col-12">
-                                    <Link><i className="fas fa-recycle"></i> Reset DB</Link>
+                                    <Link data-bs-toggle="modal" data-bs-target="#resetDB"><i className="fas fa-recycle"></i> Reset DB</Link>
                                 </div>
                                 <div className="col-12">
-                                    <Link><i className="fas fa-pencil-alt"></i> Change your credentials</Link>
+                                    <Link data-bs-toggle="modal" data-bs-target="#credentials"><i className="fas fa-pencil-alt"></i> Change your credentials</Link>
                                 </div>
                             </div>
                         </div>
@@ -26,6 +28,8 @@ class Admin extends Component {
                         </div>
                     </div>
                 </div>
+                <ResetDB />
+                <Credentials />
             </div>
         )
     }

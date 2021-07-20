@@ -76,7 +76,6 @@ class ServerLeaderboard extends Component {
                                 <img id="flagTitle" src={this.state.trackInfo.tra_flag} alt="" />
                             </div>
                         </div>
-                        <hr />
                         <div id="sessionContainer">
                             <table id="sessionList">
                                 <thead>
