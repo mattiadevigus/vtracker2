@@ -183,6 +183,7 @@ footer img {
 
 #sessionTitle {
     margin: 20px;
+    text-transform: uppercase;
 }
 
 #homeTitle i, #sessionTitle i, #sessionDetailTitle i{

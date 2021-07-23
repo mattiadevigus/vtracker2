@@ -16,5 +16,6 @@ app.use("/", routerBasics);
 
 bash.welcomeMessage();
 tasks.startup();
+tasks.openOnStart();
 
 module.exports = app;

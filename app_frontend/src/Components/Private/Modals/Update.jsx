@@ -11,15 +11,16 @@ class Update extends Component {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <h5>Beta 4</h5>
+                            <h5>2.0</h5>
                             <div className="container">
                                 <ul>
-                                    <li>Graphic improvements</li>
-                                    <li>Font change</li>
-                                    <li>Introduction of the private area algorithm</li>
-                                    <li>Introduction of the "What's new" button</li>
-                                    <li>Fixed an issue where the car number is displayed on the track leaderboard page and not the model</li>
+                                    <li>First version of the new Vtracker</li>
+                                    <li>Breakdown of times based on servers, circuits and sessions</li>
+                                    <li>New Dynamic Charts (More Coming Soon)</li>
+                                    <li>Statistics for each driver</li>
+                                    <li>Private area to configure the VT</li>
                                 </ul>
+                                <span>Other old version are available on <a target="_blank" href="https://www.racedepartment.com/downloads/vtracker.40161/"><u>Race Department</u></a></span>
                             </div>
                         </div>
                         <div className="modal-footer">

@@ -1,14 +1,16 @@
+const opener = require('opener');
 const results = require('./modules/results');
 const timeParse = require('./modules/time');
 const database = require('./modules/database');
 const bash = require('./modules/bash');
 const config = require('./modules/config');
 
+
 exports.startup = async () => {
     console.log("Updating...");
 
     const configParameters = config.getAllConfigParameters();
-    const arr = await results.getAllJsonFiles(configParameters.resPath);
+    const arr = results.getAllJsonFiles(configParameters.resPath);
     const arrDates = results.getAllJsonDataCreation(configParameters.resPath);
 
     let j = 0;
@@ -30,4 +32,9 @@ exports.startup = async () => {
     console.log("Done...");
 
     setTimeout(this.startup, config.getAllConfigParameters().updateTime);
+}
+
+exports.openOnStart = () => {
+    const configParameters = config.getAllConfigParameters();
+    if(configParameters.openOnStart === true) opener(`http://localhost:${configParameters.port}`);
 }
