@@ -7,11 +7,11 @@ const config = require('./modules/config');
 
 
 exports.startup = async () => {
-    console.log("Updating...");
+    console.log("Reading files...");
 
     const configParameters = config.getAllConfigParameters();
-    const arr = results.getAllJsonFiles(configParameters.resPath);
-    const arrDates = results.getAllJsonDataCreation(configParameters.resPath);
+    const arr = await results.getAllJsonFiles(configParameters.resPath);
+    const arrDates = await results.getAllJsonDataCreation(configParameters.resPath);
 
     let j = 0;
 
