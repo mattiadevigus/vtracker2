@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Component } from 'react';
 import Navbar from './../Partials/Navbar';
+import Footer from '../Partials/Footer';
 import Base from './../../Modules/Base';
 import ChartJS from './../../Modules/Chart';
 import Loader from '../Partials/Loader';
@@ -120,6 +121,7 @@ class Chart extends Component {
                             </div>
                         </div>
                     </section>
+                    <Footer />
                 </div >
             </div>
         )

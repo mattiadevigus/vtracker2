@@ -2,6 +2,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from './../Partials/Navbar';
+import Footer from '../Partials/Footer';
 import Loader from '../Partials/Loader';
 import Base from '../../Modules/Base';
 
@@ -134,6 +135,7 @@ class Session extends Component {
                             </div>
                         </div>
                     </section>
+                    <Footer />
                 </div>
             </div>
         )

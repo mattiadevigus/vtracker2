@@ -116,6 +116,7 @@ class FullLeaderboard extends Component {
                             </div>
                         </div>
                     </section>
+                    <Footer />
                 </div>
             </div>
         )

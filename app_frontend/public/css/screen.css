@@ -10,6 +10,10 @@ and (max-width : 768px) {
         display: none;
     }
 
+    .only-mobile {
+        display: block;
+    }
+
     .row {
         margin-top: 0;
         margin-bottom: 0;
@@ -103,6 +107,10 @@ and (max-width : 989px) and (min-width : 769px) {
     .only-full-desktop {
         display: none;
     }
+
+    .only-mobile {
+        display: none;
+    }
 }
 
 /* Laptops */
@@ -121,6 +129,10 @@ and (max-width : 1400px) and (min-width: 990px) {
     }
 
     .only-full-desktop {
+        display: none;
+    }
+
+    .only-mobile {
         display: none;
     }
     
@@ -163,6 +175,10 @@ and (min-width : 1401px) {
 
     #sessionList {
         max-height: 63vh;
+    }
+
+    .only-mobile {
+        display: none;
     }
 
 }

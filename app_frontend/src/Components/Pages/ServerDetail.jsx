@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { Component } from 'react';
 import Navbar from './../Partials/Navbar';
+import Footer from '../Partials/Footer';
 import Loader from '../Partials/Loader';
 import Base from './../../Modules/Base';
 import ChartJS from './../../Modules/Chart';
-import { Link } from 'react-router-dom';
 
 class ServerDetail extends Component {
 
@@ -89,7 +89,7 @@ class ServerDetail extends Component {
                                                 <h3>PB TIME: {this.state.bestDriverTime.tim_totalTime === this.state.bestTime.tim_totalTime ? <span className="bestEle">{Base.getFullTime(this.state.bestDriverTime.tim_totalTime * 1000)}</span> : <span>{Base.getFullTime(this.state.bestDriverTime.tim_totalTime * 1000)}</span>}</h3>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h3>AVG SPEED: <span className="baseEle">{this.state.avgSpeed}</span> Km/h</h3>
+                                                <h3>AVG SPEED: <span>{this.state.avgSpeed}</span> Km/h</h3>
                                             </div>
                                             <div className="col-12 col-md-4">
                                                 <h3>TOTAL LAPS: {this.state.totalLaps.tim_driverCount}</h3>
@@ -175,6 +175,7 @@ class ServerDetail extends Component {
                             </div>
                         </div>
                     </section>
+                    <Footer />
                 </div >
             </div>
         )

@@ -82,7 +82,8 @@ class ServerLeaderboard extends Component {
                                     <tr>
                                         <th>#</th>
                                         <th>Full Name</th>
-                                        <th className="only-desktop">Car</th>
+                                        {/* <th className="only-desktop">Logo</th> */}
+                                        <th className="only-desktop">Car</th> 
                                         <th className="only-desktop">S1</th>
                                         <th className="only-desktop">S2</th>
                                         <th className="only-desktop">S3</th>
@@ -103,7 +104,8 @@ class ServerLeaderboard extends Component {
                                                 <Link className="linkTable" to={driverLink}>
                                                     <tr>
                                                         <td>{i + 1}</td>
-                                                        <td style={{ borderLeft: `4px solid ${time.car_color}` }}>{time.tim_driverName}</td>
+                                                        <td>{time.tim_driverName}</td>
+                                                        {/* <td className="only-desktop"><img src={time.car_img} /></td> */}
                                                         <td className="only-desktop">{time.car_name}</td>
                                                         <td className="only-desktop">{((time.tim_sectorOne === this.state.bestSessions.bestSectorOne ? <span className="bestEle">{time.tim_sectorOne}</span> : time.tim_sectorOne))}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>

@@ -15,8 +15,9 @@ class Update extends Component {
                             <div className="container">
                                 <ul>
                                     <li>First version of the new Vtracker</li>
+                                    <li>Tracker optimization in terms of performance</li>
                                     <li>Breakdown of times based on servers, circuits and sessions</li>
-                                    <li>New Dynamic Charts (More Coming Soon)</li>
+                                    <li>New Dynamic Charts</li>
                                     <li>Statistics for each driver</li>
                                     <li>Private area to configure the VT</li>
                                 </ul>

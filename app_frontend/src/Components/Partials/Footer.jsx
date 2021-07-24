@@ -16,6 +16,7 @@ class Footer extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <hr className="only-mobile"/>
                             <div className="col-xl-4 col-md-4 mb-30">
                                 <div className="single-cta">
                                     <i className="fas fa-gamepad"></i>
@@ -25,6 +26,7 @@ class Footer extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <hr className="only-mobile"/>
                             <div className="col-xl-4 col-md-4 mb-30">
                                 <div className="single-cta">
                                     <i className="fab fa-paypal"></i>
@@ -36,6 +38,7 @@ class Footer extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <hr className="only-mobile"/>
                         </div>
                     </div>
                 </div>
