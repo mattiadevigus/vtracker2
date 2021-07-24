@@ -3,19 +3,6 @@ const fsPromises = fs.promises;
 const colors = require('colors/safe');
 
 exports.getAllJsonFiles = async(filespath) => {
-    /* let arr = [];
-    if (fs.existsSync(filespath)) {
-        let files = fs.readdirSync(filespath);
-        if (files.length == 0) console.log(colors.bgRed(`0 files detected`));
-        files.forEach(file => {
-            if (file.indexOf(".json") > -1) {
-                arr.push(this.getJsonFile(filespath + "\\" + file));
-            }
-        });
-    } else {
-        console.log(colors.bgRed(`No directory found || Your directory: ${filespath}`));
-    }
- */
     let arr = [];
     if (fs.existsSync(filespath)) {
         let files = await fsPromises.readdir(filespath);

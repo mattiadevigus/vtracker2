@@ -7,8 +7,6 @@ const config = require('./modules/config');
 
 
 exports.startup = async () => {
-    console.log("Reading files...");
-
     const configParameters = config.getAllConfigParameters();
     const arr = await results.getAllJsonFiles(configParameters.resPath);
     const arrDates = await results.getAllJsonDataCreation(configParameters.resPath);
@@ -28,9 +26,7 @@ exports.startup = async () => {
 
         j++;
     }
-
-    console.log("Done...");
-
+    
     setTimeout(this.startup, config.getAllConfigParameters().updateTime);
 }
 
