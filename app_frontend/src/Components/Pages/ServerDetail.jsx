@@ -144,7 +144,7 @@ class ServerDetail extends Component {
                                         this.state.times.map((time, i) => {
                                             return (
                                                 <tr className={(time.tim_totalTime === this.state.bestDriverTime.tim_totalTime ? "bestTr" : "")}>
-                                                    <td>{i + 1}</td>
+                                                    <td id="lapCount">{i + 1}</td>
                                                     <td>{time.tim_sectorOne}</td>
                                                     <td>{time.tim_sectorTwo}</td>
                                                     <td>{time.tim_sectorTree}</td>

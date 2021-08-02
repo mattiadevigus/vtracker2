@@ -1,4 +1,4 @@
-import { Component } from 'react'; 
+import { Component } from 'react';
 
 class Update extends Component {
     render = () => {
@@ -11,6 +11,18 @@ class Update extends Component {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
+                            <h5>2.1</h5>
+                            <div className="container">
+                                <ul>
+                                    <li>Fixed an issue where you had to log back in after changing the path in the private area</li>
+                                    <li>Fixed a problem with reading files on linux</li>
+                                    <li>Removed some console messages used for the beta</li>
+                                    <li>Added a message to the console for each file read</li> 
+                                    <li>Recreated a runnable for linux</li>
+                                    <li>Minimal graphical improvements</li>
+                                </ul>
+                            </div>
+                            <hr />
                             <h5>2.0</h5>
                             <div className="container">
                                 <ul>

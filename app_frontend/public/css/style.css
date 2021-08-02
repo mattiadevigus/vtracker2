@@ -616,3 +616,12 @@ ul {
 .modal-body i {
     margin: 20px !important;
 }
+
+#update .modal-body {
+    max-height: 30vh;
+    overflow-x: scroll;
+}
+
+#lapCount {
+    color: #c5c5c5 !important;
+}
