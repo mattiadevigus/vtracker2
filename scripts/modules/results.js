@@ -9,9 +9,11 @@ exports.getAllJsonFiles = async(filespath) => {
         if (files.length == 0) console.log(colors.bgRed(`0 files detected`));
         files.forEach(file => {
             if (file.indexOf(".json") > -1) {
-                arr.push(this.getJsonFile(filespath + "\\" + file));
+                console.log(`Reading file ${colors.green(file)}`);
+                arr.push(this.getJsonFile(filespath + "/" + file));
             }
         });
+        console.log(colors.green("-------------------------------------"));
     } else {
         console.log(colors.bgRed(`No directory found || Your directory: ${filespath}`));
     }
@@ -32,7 +34,7 @@ exports.getAllJsonDataCreation = async(filespath) => {
     if (fs.existsSync(filespath)) {
         let files = await fsPromises.readdir(filespath);
         files.forEach(file => {
-            let dateCreation = fs.statSync((filespath + "\\" + file));
+            let dateCreation = fs.statSync((filespath + "/" + file));
             dates.push(dateCreation["birthtime"]);
         })
     }

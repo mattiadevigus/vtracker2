@@ -82,14 +82,18 @@ and (max-width : 768px) {
     .only-full-desktop {
         display: none;
     }
+
+    #sessionList th {
+        padding: 20px;
+    }
 }
 
 /* Tablet */
 @media only screen 
 and (max-width : 989px) and (min-width : 769px) {
     .row {
-        margin-top: 0;
-        margin-bottom: 0;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     #formSection form {
@@ -110,6 +114,10 @@ and (max-width : 989px) and (min-width : 769px) {
 
     .only-mobile {
         display: none;
+    }
+
+    #sessionList th {
+        padding: 20px;
     }
 }
 

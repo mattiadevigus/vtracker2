@@ -16,6 +16,7 @@ class Update extends Component {
                                 <ul>
                                     <li>Fixed an issue where you had to log back in after changing the path in the private area</li>
                                     <li>Fixed a problem with reading files on linux</li>
+                                    <li>Fixed an issue where strange characters were shown in the names of drivers</li>
                                     <li>Removed some console messages used for the beta</li>
                                     <li>Added a message to the console for each file read</li> 
                                     <li>Recreated a runnable for linux</li>

@@ -19,7 +19,6 @@ exports.getFullLeaderboard = (req, res) => {
 }
 
 exports.checkAdmin = (req, res) => {
-    console.log(req.body);
     const parameters = config.getAllConfigParameters();
     if (parameters.user === req.body.username && parameters.password === req.body.password) {
         res.send(true);
@@ -66,7 +65,6 @@ exports.editCredentials = (req, res) => {
 }
 
 exports.editPath = (req, res) => {
-    console.log(req.body);
     let parameters = config.getAllConfigParameters();
     parameters.resPath = (req.body.path).replace(/\\"/g, '"');
     config.writeConfigFile(parameters);

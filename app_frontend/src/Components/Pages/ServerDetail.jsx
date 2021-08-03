@@ -125,7 +125,7 @@ class ServerDetail extends Component {
                         <div id="sessionTitle">
                             <i className="fas fa-poll-h"></i>
                             <hr />
-                            <h1>LAPS OF <span className="baseEle">{(((window.location.href).split("/")[6]).replace("%20", " ")).split("#")[0]}</span></h1>
+                            <h1>LAPS OF <span className="baseEle">{(((window.location.href).split("/")[6]).replaceAll("%20", " ")).split("#")[0]}</span></h1>
                         </div>
                         <div id="sessionContainer">
                             <table id="sessionList">

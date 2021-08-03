@@ -12,7 +12,7 @@ class Chart extends Component {
         super(props);
 
         this.state = {
-            driverName: (((window.location.href).split("/")[5]).split("#")[0]).replace("%20", " "),
+            driverName: (((window.location.href).split("/")[5]).split("#")[0]).replaceAll("%20", " "),
             times: [""],
             avgSpeed: 0,
             bestTime: 0,
