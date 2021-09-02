@@ -8,29 +8,32 @@ const config = require('./modules/config');
 
 exports.startup = async () => {
     const configParameters = config.getAllConfigParameters();
-    const arr = await results.getAllJsonFiles(configParameters.resPath);
-    const arrDates = await results.getAllJsonDataCreation(configParameters.resPath);
 
-    let j = 0;
+    for (let path of configParameters.resPath) {
+        const arr = await results.getAllJsonFiles(path);
+        const arrDates = await results.getAllJsonDataCreation(path);
 
-    for(let session of arr) {
-        let idSession = database.createSession(results.getServerName(session), results.getTrackName(session), results.getWeather(session), results.getSessionType(session), arrDates[j]);
-        let leaderboards = results.getFullLeaderBoard(session);
-        
-        for(let driver of leaderboards) {
-            let times = results.getAllLapsFromDriver(session, driver.car["carId"]);
-            for(let time of times) {
-                database.insertTime((driver.currentDriver["firstName"] + " " + driver.currentDriver["lastName"]), driver.car["carModel"], time, idSession);
+        let j = 0;
+
+        for (let session of arr) {
+            let idSession = database.createSession(results.getServerName(session), results.getTrackName(session), results.getWeather(session), results.getSessionType(session), arrDates[j]);
+            let leaderboards = results.getFullLeaderBoard(session);
+
+            for (let driver of leaderboards) {
+                let times = results.getAllLapsFromDriver(session, driver.car["carId"]);
+                for (let time of times) {
+                    database.insertTime((driver.currentDriver["firstName"] + " " + driver.currentDriver["lastName"]), driver.car["carModel"], time, idSession);
+                }
             }
-        }
 
-        j++;
+            j++;
+        }
     }
-    
+
     setTimeout(this.startup, config.getAllConfigParameters().updateTime);
 }
 
 exports.openOnStart = () => {
     const configParameters = config.getAllConfigParameters();
-    if(configParameters.openOnStart === true) opener(`http://localhost:${configParameters.port}`);
+    if (configParameters.openOnStart === true) opener(`http://localhost:${configParameters.port}`);
 }

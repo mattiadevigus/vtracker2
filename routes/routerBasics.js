@@ -40,6 +40,9 @@ router
     .post("/editPath", controllerBasics.editPath);
 
 router
+    .post("/manageServer", controllerBasics.getAllAccServers);
+
+router
     .get("*", (req, res) => {
         res.sendFile(path.join(__dirname, '../app_frontend/build/index.html'));
     });

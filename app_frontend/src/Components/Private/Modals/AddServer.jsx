@@ -2,7 +2,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import Base from './../../../Modules/Base';
 
-class Path extends Component {
+class AddServer extends Component {
 
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class Path extends Component {
 
     submitHandle = (e) => {
         e.preventDefault();
-        axios.post(`http://${Base.getIp()}:${Base.getPort()}/editPath`, this.state)
+        axios.post(`http://${Base.getIp()}:${Base.getPort()}/addServer`, this.state)
             .then(res => {
                 window.location.replace("/dashboard");
             })
@@ -27,24 +27,24 @@ class Path extends Component {
 
     render = () => {
         return (
-            <div className="modal animate_animated animate__bounceIn" id="path">
+            <div className="modal animate_animated animate__bounceIn" id="addServer">
                 <div className="modal-dialog modal-dialog-centered text-center">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5>Change Path</h5>
+                            <h5>Add a new server</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="container">
-                                <i className="fas fa-user-lock animate__animated animate__backInRight fa-4x center-icon"></i>
+                                <i className="fas fa-server animate__animated animate__backInRight fa-4x center-icon"></i>
                                 <br />
-                                <span>The changes will also be available on config.json</span>
+                                <span>Enter the path to the results folder</span>
                                 <br />
                                 <span>For Windows: \</span>
                                 <br />
                                 <span>For Linux: /</span>
                                 <form method="post" id="formModal" onSubmit={this.submitHandle}>
-                                    <input type="text" name="path" id="path" placeholder="Path..." value={this.state.username} onChange={this.changeHandler} required />
+                                    <input type="text" name="addServer" id="addServer" placeholder="Path..." value={this.state.username} onChange={this.changeHandler} required />
                                     <br />
                                     
                                     <div className="modal-footer">
@@ -62,4 +62,4 @@ class Path extends Component {
     }
 }
 
-export default Path;
+export default AddServer;

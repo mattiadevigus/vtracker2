@@ -70,3 +70,8 @@ exports.editPath = (req, res) => {
     config.writeConfigFile(parameters);
     res.send(true);
 }
+
+exports.getAllAccServers = (req, res) => {
+    let parameters = config.getAllConfigParameters();
+    res.send(parameters.resPath);
+} 

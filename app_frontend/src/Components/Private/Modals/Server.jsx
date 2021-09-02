@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Base from './../../../Modules/Base';
 import Path from './Path';
+import AddServer from './AddServer';
+import ManageServer from './ManageServer';
 
 class Server extends Component {
     render = () => {
@@ -16,8 +16,11 @@ class Server extends Component {
                         </div>
                         <div className="modal-body">
                             <div className="row">
+                                {/* <div className="col-12">
+                                    <Link data-bs-toggle="modal" data-bs-target="#addServer"><i className="fas fa-plus-circle"></i> Add new ACC's server</Link>
+                                </div> */}
                                 <div className="col-12">
-                                    <Link data-bs-toggle="modal" data-bs-target="#path"><i className="fas fa-pencil-alt"></i> Change the results folder path</Link>
+                                    <Link data-bs-toggle="modal" data-bs-target="#manageServer"><i className="fas fa-pencil-alt"></i> Manage ACC's server</Link>
                                 </div>
                             </div>
                         </div>
@@ -27,6 +30,8 @@ class Server extends Component {
                     </div>
                 </div>
                 <Path />
+                <AddServer />
+                <ManageServer />
             </div>
         )
     }

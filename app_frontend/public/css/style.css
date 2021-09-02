@@ -613,6 +613,10 @@ ul {
     font-weight: 400;
 }
 
+.modal-body table{
+    margin: 0 auto;
+}
+
 .modal-body i {
     margin: 20px !important;
 }
@@ -624,4 +628,26 @@ ul {
 
 #lapCount {
     color: #c5c5c5 !important;
+}
+
+.modal-body table{
+    background-color: rgba(15, 15, 20, 0.855);
+    border-radius: 1rem;
+    font-weight: normal;
+}
+
+.modal-body table th {
+    padding: 1rem;
+    border-bottom: 1px solid #fff;
+}
+
+.modal-body table td {
+    padding: 1rem;
+    border-bottom: 1px solid #fff;
+}
+
+.modal-body table button {
+    background-color: #15151e;
+    color: #c5c5c5;
+    border: 1px solid #8b0000;
 }
