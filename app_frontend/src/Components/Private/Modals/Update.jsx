@@ -11,6 +11,17 @@ class Update extends Component {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
+                            <h5>2.2</h5>
+                            <div className="container">
+                                <ul>
+                                    <li>introduced a Multiserver system: Now you can add more ACC servers via the admin area</li>
+                                    <li>Re-created the server section in the admin area</li>
+                                    <li>Introduced the possibility to modify or delete the ACC servers through the admin area</li>
+                                    <li>Introduced a guided configuration via GUI at the first start</li>
+                                    <li>Minimal graphical improvements</li>
+                                </ul>
+                            </div>
+                            <hr />
                             <h5>2.1</h5>
                             <div className="container">
                                 <ul>
@@ -18,7 +29,7 @@ class Update extends Component {
                                     <li>Fixed a problem with reading files on linux</li>
                                     <li>Fixed an issue where strange characters were shown in the names of drivers</li>
                                     <li>Removed some console messages used for the beta</li>
-                                    <li>Added a message to the console for each file read</li> 
+                                    <li>Added a message to the console for each file read</li>
                                     <li>Recreated a runnable for linux</li>
                                     <li>Minimal graphical improvements</li>
                                 </ul>

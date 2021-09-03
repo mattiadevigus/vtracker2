@@ -46,7 +46,6 @@ class AddServer extends Component {
                                 <form method="post" id="formModal" onSubmit={this.submitHandle}>
                                     <input type="text" name="addServer" id="addServer" placeholder="Path..." value={this.state.username} onChange={this.changeHandler} required />
                                     <br />
-                                    
                                     <div className="modal-footer">
                                         <button type="submit" className="btn btn-danger">Submit</button>
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

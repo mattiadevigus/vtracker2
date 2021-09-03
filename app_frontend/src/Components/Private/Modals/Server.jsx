@@ -7,12 +7,12 @@ import ManageServer from './ManageServer';
 class Server extends Component {
     render = () => {
         return (
-            <div className="modal animate_animated animate__bounceIn" id="server">
+            <div data-dismiss="modal" data-toggle="modal"  className="modal w3-animate-zoom" id="server">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5>Servers settings</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="row">
