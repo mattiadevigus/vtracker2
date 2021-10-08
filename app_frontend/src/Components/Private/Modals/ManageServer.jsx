@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import axios from 'axios';
 import Base from './../../../Modules/Base';
+import { Link } from 'react-router-dom';
+import EditServer from './EditServer';
 
 class ManageServer extends Component {
 
@@ -39,15 +41,18 @@ class ManageServer extends Component {
                                     <div className="row">
                                         <div className="col-lg-4 col-md-4 only-desktop"><i className="fas fa-server fa-2x"></i></div>
                                         <div className="col 12 col-md-4 col-lg-4">{path.replace("\\SteamLibrary\\steamapps\\common", "\\...")}</div>
-                                        <div className="col 12 col-md-4 col-lg-4"><div className="dropdown">
-                                            <button className="btn btn-danger dropdown-toggle" type="button" id="dropDown" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Actions
-                                            </button>
-                                            <ul className="dropdown-menu w3-animate-opacity" aria-labelledby="dropDown">
-                                                <li><a className="dropdown-item" href="#">Edit</a></li>
-                                                <li><a className="dropdown-item" href="#">Delete</a></li>
-                                            </ul>
-                                        </div></div>
+                                        <div className="col 12 col-md-4 col-lg-4">
+                                            <div className="dropdown">
+                                                <button className="btn btn-danger dropdown-toggle" type="button" id="dropDown" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Actions
+                                                </button>
+                                                <ul className="dropdown-menu w3-animate-opacity" aria-labelledby="dropDown">
+                                                    <li><Link data-bs-toggle="modal" data-bs-target="#editServer" className="dropdown-item">Edit</Link></li>
+                                                    <li><Link data-bs-toggle="modal" data-bs-target="#deleteServer" className="dropdown-item">Delete</Link></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <EditServer id="2" sPath={path.replace("\\SteamLibrary\\steamapps\\common", "\\...")}/>
                                     </div>
                                 )
                             })}
@@ -58,6 +63,7 @@ class ManageServer extends Component {
                     </div>
                 </div>
             </div>
+            
         )
     }
 }

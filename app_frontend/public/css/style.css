@@ -649,3 +649,8 @@ ul {
     border: 1px solid #8b0000;
     border-radius: 0.3rem;
 }
+
+#editSserverModal {
+    border: 1px solid #fff;
+    box-shadow: 0 0 20px rgb(102, 102, 102);
+}
