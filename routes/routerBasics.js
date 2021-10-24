@@ -43,6 +43,15 @@ router
     .post("/manageServer", controllerBasics.getAllAccServers);
 
 router
+    .post("/addServer", controllerBasics.addServer);
+
+router
+    .post("/editServer/:id", controllerBasics.editServer)
+
+router
+    .post("/deleteServer", controllerBasics.deleteServer)
+
+router
     .get("*", (req, res) => {
         res.sendFile(path.join(__dirname, '../app_frontend/build/index.html'));
     });

@@ -7,7 +7,7 @@ import ManageServer from './ManageServer';
 class Server extends Component {
     render = () => {
         return (
-            <div data-dismiss="modal" data-toggle="modal"  className="modal w3-animate-zoom" id="server">
+            <div data-dismiss="modal" data-toggle="modal" className="modal animate_animated animate__bounceIn" id="server">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -16,9 +16,9 @@ class Server extends Component {
                         </div>
                         <div className="modal-body">
                             <div className="row">
-                                {/* <div className="col-12">
+                                <div className="col-12">
                                     <Link data-bs-toggle="modal" data-bs-target="#addServer"><i className="fas fa-plus-circle"></i> Add new ACC's server</Link>
-                                </div> */}
+                                </div>
                                 <div className="col-12">
                                     <Link data-bs-toggle="modal" data-bs-target="#manageServer"><i className="fas fa-pencil-alt"></i> Manage ACC's server</Link>
                                 </div>

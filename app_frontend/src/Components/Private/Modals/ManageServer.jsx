@@ -47,23 +47,29 @@ class ManageServer extends Component {
                                                     Actions
                                                 </button>
                                                 <ul className="dropdown-menu w3-animate-opacity" aria-labelledby="dropDown">
-                                                    <li><Link data-bs-toggle="modal" data-bs-target="#editServer" className="dropdown-item">Edit</Link></li>
-                                                    <li><Link data-bs-toggle="modal" data-bs-target="#deleteServer" className="dropdown-item">Delete</Link></li>
+                                                    <li><Link data-bs-toggle="modal" data-bs-target="#editServer"  className="dropdown-item">Edit</Link></li>
+                                                    <li><Link onClick={function () {
+                                                        if (confirm("are you sure?")) {
+                                                            axios.post(`http://${Base.getIp()}:${Base.getPort()}/deleteServer`, {server: path})
+                                                                .then(res => {
+                                                                    window.location.replace("/dashboard");
+                                                                })
+                                                        }
+                                                        
+                                                    }} className="dropdown-item">Delete</Link></li>
                                                 </ul>
+                                                
                                             </div>
                                         </div>
-                                        <EditServer id="2" sPath={path.replace("\\SteamLibrary\\steamapps\\common", "\\...")}/>
+                                        <EditServer id="2" sPath={path} />
                                     </div>
                                 )
                             })}
                         </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-danger"><i className="fas fa-plus-circle"></i> Add</button>
-                        </div>
                     </div>
                 </div>
             </div>
-            
+
         )
     }
 }

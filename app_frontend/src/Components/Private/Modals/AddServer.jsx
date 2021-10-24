@@ -44,7 +44,7 @@ class AddServer extends Component {
                                 <br />
                                 <span>For Linux: /</span>
                                 <form method="post" id="formModal" onSubmit={this.submitHandle}>
-                                    <input type="text" name="addServer" id="addServer" placeholder="Path..." value={this.state.username} onChange={this.changeHandler} required />
+                                    <input type="text" name="path" id="path" placeholder="Path..." value={this.state.path} onChange={this.changeHandler} required />
                                     <br />
                                     <div className="modal-footer">
                                         <button type="submit" className="btn btn-danger">Submit</button>

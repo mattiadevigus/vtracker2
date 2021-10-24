@@ -31,7 +31,7 @@ class Dashboard extends Component {
                     <Navbar />
                     <section id="dashboardSection" className="animate__animated animate__fadeIn">
                         <div id="sessionTitle">
-                            <h1>PRIVATE AREA (WIP)</h1>
+                            <h1>PRIVATE AREA</h1>
                         </div>
                         <div className="row w-100">
                             <div className="col-12 col-md-4">

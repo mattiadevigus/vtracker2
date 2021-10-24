@@ -72,6 +72,51 @@ exports.editPath = (req, res) => {
 }
 
 exports.getAllAccServers = (req, res) => {
-    let parameters = config.getAllConfigParameters();
+    const parameters = config.getAllConfigParameters();
     res.send(parameters.resPath);
 } 
+
+exports.addServer = (req, res) => {
+    const parameters = config.getAllConfigParameters();
+    const servers = parameters.resPath;
+    let arr = [];
+    let check = false;
+    
+    for(let param of servers) {
+        arr.push(param);
+        param === req.body.path ? check = true : check = false;
+    }
+
+    if(!check) arr.push(req.body.path);
+    parameters.resPath = arr;
+    config.writeConfigFile(parameters);
+    res.send(true);
+}
+
+exports.editServer = (req, res) => {
+    const parameters = config.getAllConfigParameters();
+    const servers = parameters.resPath;
+    let arr = [];
+
+    for(let param of servers) {
+        param === req.body.oldPath ? arr.push(req.body.serverPath) : arr.push(param)
+    }
+
+    parameters.resPath = arr;
+    config.writeConfigFile(parameters);
+    res.send(true);
+}
+
+exports.deleteServer = (req, res) => {
+    const parameters = config.getAllConfigParameters();
+    const servers = parameters.resPath;
+    let arr = []
+
+    for(let param of servers) {
+        param !== req.body.server ? arr.push(param) : console.log("server da non mettere")
+    }
+
+    parameters.resPath = arr;
+    config.writeConfigFile(parameters);
+    res.send(true);
+}

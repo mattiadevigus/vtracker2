@@ -14,10 +14,12 @@ class Update extends Component {
                             <h5>2.2</h5>
                             <div className="container">
                                 <ul>
-                                    <li>introduced a Multiserver system: Now you can add more ACC servers via the admin area</li>
+                                    <li>Introduced a Multiserver system: Now you can add more ACC servers via the admin area</li>
                                     <li>Re-created the server section in the admin area</li>
                                     <li>Introduced the possibility to modify or delete the ACC servers through the admin area</li>
-                                    <li>Introduced a guided configuration via GUI at the first start</li>
+                                    <li>Fixed an issue where an incorrect best car was displayed (Server Leaderboard)</li>
+                                    <li>Changed the layout of the Silverstone circuit with the new one</li>
+                                    <li>Fixed an issue where the Zandvoort layout was not displaying correctly</li>
                                     <li>Minimal graphical improvements</li>
                                 </ul>
                             </div>
