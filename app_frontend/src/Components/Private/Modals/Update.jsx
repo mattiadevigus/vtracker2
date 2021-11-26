@@ -18,6 +18,8 @@ class Update extends Component {
                                     <li>Fixed an issue where the Hungarian layout was not displaying correctly</li>
                                     <li>Tracks are now no longer split by year due to the ACC Server update</li>
                                     <li>Removed best car stat in server leaderboard</li>
+                                    <li>Now only the json files containing "_FP", "_Q", "_R" in the name are read. This was done to reduce crashes due to json files created by the ACC server</li>
+                                    <li>Minimal graphical improvements</li>
                                 </ul>
                             </div>
                             <h5>2.2</h5>

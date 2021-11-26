@@ -70,7 +70,7 @@ class App extends Component {
                                 <div className="row">
                                     {this.state.servers.map((server, i) => {
                                         return (
-                                            <div className="col-12 col-md-6 col-lg-4 serverCol">
+                                            <div className="col-6 col-md-6 col-lg-4 serverCol">
                                                 <Link id="trackLink" to={"/serverLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode}>
                                                     <div className="row">
                                                         <div className="col-12 col-md-12">
