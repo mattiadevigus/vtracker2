@@ -157,7 +157,7 @@ class ServerLeaderboard extends Component {
                                 </div>
                                 <div className="col-lg-1"></div>
                             </div>
-                            <br /><br />
+{/*                             <br /><br />
                             <div className="row">
                                 <div className="col-lg-3"></div>
                                 <div className="col-12col-lg-6">
@@ -166,7 +166,7 @@ class ServerLeaderboard extends Component {
                                     <h3 id="statSession">BEST CAR</h3>
                                 </div>
                                 <div className="col-lg-3"></div>
-                            </div>
+                            </div> */}
                         </div>
                     </section>
                     <section id="chartSection">

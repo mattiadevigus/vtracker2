@@ -1,9 +1,12 @@
 const pathDb = "./public/tracker.db";
+const results = require('./results');
 const timeParse = require('./time');
 const sqlite = require('better-sqlite3');
 
 exports.createSession = (server, track, weatherValue, sessionType, dataCreation) => {
     const db = new sqlite(pathDb);
+
+    track = results.fixTrackYear(track);
 
     let stmt = db.prepare(`INSERT OR IGNORE INTO Sessions VALUES(NULL, ?, ?, ?, ?, ?)`);
     stmt.run(server, track, weatherValue, sessionType, dataCreation.toString());

@@ -42,11 +42,11 @@ class App extends Component {
                     <Navbar />
                     <section id="homeSection" className="animate__animated animate__fadeIn">
                         <div id="homeContainer">
-                            <img src="/img/icon.png" alt="" />
+                            <img src="/img/icon.png" alt="" />                     
                             <hr />
                             <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by Mattia Devigus</p>
                             <hr />
-                            <h1>2.2</h1>
+                            <h1>2.2.1</h1>
                             <Link data-bs-toggle="modal" data-bs-target="#update">
                                 <button className="btn btn-danger">What's new</button>
                             </Link>
@@ -155,7 +155,6 @@ class App extends Component {
                 </div >
                 <Update />
             </div>
-
         )
     }
 }

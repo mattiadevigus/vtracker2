@@ -11,6 +11,15 @@ class Update extends Component {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
+                            <h5>2.2.1</h5>
+                            <div className="container">
+                                <ul>
+                                    <li>Added BMW's Update Car</li>
+                                    <li>Fixed an issue where the Hungarian layout was not displaying correctly</li>
+                                    <li>Tracks are now no longer split by year due to the ACC Server update</li>
+                                    <li>Removed best car stat in server leaderboard</li>
+                                </ul>
+                            </div>
                             <h5>2.2</h5>
                             <div className="container">
                                 <ul>

@@ -8,7 +8,7 @@ exports.getAllJsonFiles = async(filespath) => {
         let files = await fsPromises.readdir(filespath);
         if (files.length == 0) console.log(colors.bgRed(`0 files detected`));
         files.forEach(file => {
-            if (file.indexOf(".json") > -1) {
+            if (file.indexOf(".json") > -1 && (file.includes("_FP") || file.includes("_Q") || file.includes("_R"))) {
                 console.log(`Reading file ${colors.green(file)}`);
                 arr.push(this.getJsonFile(filespath + "/" + file));
             }
@@ -90,4 +90,8 @@ exports.removeEscape = (string) => {
     string = string.replace(/[\u0000-\u0019]+/g, "");
 
     return JSON.parse(string);
+}
+
+exports.fixTrackYear = (track) => {
+    return track.replace("_2019", "").replace("_2020", "");
 }

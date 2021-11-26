@@ -10,7 +10,7 @@ class Navbar extends Component {
                 </Link>
                 <div className="navbar-right justify-content-end">
                     <Link to="/dashboard">
-                    <h5><i className="fas fa-user-lock"></i> ADMIN AREA </h5>
+                        <h5><i className="fas fa-user-lock"></i> ADMIN AREA </h5>
                     </Link>
                 </div>
             </nav>
