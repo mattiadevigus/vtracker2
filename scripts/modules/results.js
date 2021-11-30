@@ -9,10 +9,13 @@ exports.getAllJsonFiles = async(filespath) => {
         if (files.length == 0) console.log(colors.bgRed(`0 files detected`));
         files.forEach(file => {
             if (file.indexOf(".json") > -1 && (file.includes("_FP") || file.includes("_Q") || file.includes("_R"))) {
-                console.log(`Reading file ${colors.green(file)}`);
                 arr.push(this.getJsonFile(filespath + "/" + file));
+                console.log(`FILE OK ${colors.green(file)}`);
+            } else {
+                console.log(`FILE SKIPPED ${colors.red(file)}`);
             }
         });
+
         console.log(colors.green("-------------------------------------"));
     } else {
         console.log(colors.bgRed(`No directory found || Your directory: ${filespath}`));
