@@ -79,14 +79,20 @@ exports.getFullLeaderBoard = (arr) => {
 
 exports.getAllLapsFromDriver = (arr, id) => {
     let times = [];
+    let notValidTimes = []
     let i = 0;
 
     while (arr.laps[i] != undefined) {
-        if (arr.laps[i].carId === id && arr.laps[i].isValidForBest === true) times.push(arr.laps[i].splits);
+        if (arr.laps[i].carId === id && arr.laps[i].isValidForBest === true) {
+            times.push(arr.laps[i].splits);
+        } else {
+            notValidTimes.push(arr.laps[i].splits);
+        }
+        
         i++;
     }
 
-    return times;
+    return [times, notValidTimes];
 }
 
 exports.removeEscape = (string) => {

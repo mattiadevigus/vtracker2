@@ -88,7 +88,7 @@ class ServerLeaderboard extends Component {
                                         <th className="only-desktop">S2</th>
                                         <th className="only-desktop">S3</th>
                                         <th>Time</th>
-                                        <th className="only-desktop">Weather</th>
+                                        <th className="only-desktop">Laps</th>
                                         <th>Gap</th>
                                     </tr>
                                 </thead>
@@ -111,7 +111,7 @@ class ServerLeaderboard extends Component {
                                                         <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
                                                         <td>{(time.tim_totalTime === this.state.bestDriverTime ? <span className="personalBestEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span> : Base.getFullTime((time.tim_totalTime * 1000)))}</td>
-                                                        <td className="only-desktop">{(time.ses_weather <= 0 ? <i className="fas fa-sun"></i> : <i className="fas fa-cloud-rain"></i>)}</td>
+                                                        <td className="only-desktop">6/40</td>
                                                         <td>{Base.getGap((this.state.bestTime * 1000), (time.tim_totalTime * 1000))}</td>
                                                     </tr>
                                                 </Link>

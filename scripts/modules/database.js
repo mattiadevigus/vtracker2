@@ -19,14 +19,32 @@ exports.createSession = (server, track, weatherValue, sessionType, dataCreation)
     return lastId["ses_id"];
 };
 
-exports.insertTime = (driverName, carModel, time, lastId) => {
+exports.insertTime = (driverName, carModel, time, lastId, isValid) => {
     const db = new sqlite(pathDb);
 
-    stmt = db.prepare(`INSERT OR IGNORE INTO Times VALUES(NULL, ?, ?, ?, ?, ?, ?)`);
-    stmt.run(driverName, carModel, timeParse.getSeconds(time[0]), timeParse.getSeconds(time[1]), timeParse.getSeconds(time[2]), lastId);
+    // ACI 40 LAPS
+    const isValidForACI = checkACI(driverName, time);
+
+    let stmt = db.prepare(`INSERT OR IGNORE INTO Times VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?)`);
+    stmt.run(driverName, carModel, timeParse.getSeconds(time[0]), timeParse.getSeconds(time[1]), timeParse.getSeconds(time[2]), lastId, isValidForACI, isValid);
 
     db.close();
 };
+
+checkACI = (driverName, time) => {
+    const db = new sqlite(pathDb);
+
+    let stmt = db.prepare(`SELECT COUNT(tim_driverName) as Count FROM Times WHERE tim_driverName = ?`);
+    let rs = stmt.get(driverName);
+
+   let count = rs["Count"];
+
+    if(count >= 40) {
+        return 0
+    } else {
+        return -1
+    }
+}
 
 exports.serverCollections = () => {
     const db = new sqlite(pathDb);
