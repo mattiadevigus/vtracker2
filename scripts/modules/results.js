@@ -2,7 +2,7 @@ const fs = require('fs');
 const fsPromises = fs.promises;
 const colors = require('colors/safe');
 
-exports.getAllJsonFiles = async(filespath) => {
+exports.getAllJsonFiles = async (filespath) => {
     let arr = [];
     if (fs.existsSync(filespath)) {
         let files = await fsPromises.readdir(filespath);
@@ -32,7 +32,7 @@ exports.getJsonFile = (filename) => {
     return data;
 }
 
-exports.getAllJsonDataCreation = async(filespath) => {
+exports.getAllJsonDataCreation = async (filespath) => {
     let dates = [];
     if (fs.existsSync(filespath)) {
         let files = await fsPromises.readdir(filespath);
@@ -85,10 +85,10 @@ exports.getAllLapsFromDriver = (arr, id) => {
     while (arr.laps[i] != undefined) {
         if (arr.laps[i].carId === id && arr.laps[i].isValidForBest === true) {
             times.push(arr.laps[i].splits);
-        } else {
+        } else if (arr.laps[i].carId === id && arr.laps[i].isValidForBest === false) {
             notValidTimes.push(arr.laps[i].splits);
         }
-        
+
         i++;
     }
 

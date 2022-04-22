@@ -20,7 +20,8 @@ class ServerLeaderboard extends Component {
             trackInfo: "",
             usedCars: [],
             bestCarAvg: [],
-            avgCars: []
+            avgCars: [],
+            aciCount: []
         }
     }
 
@@ -37,7 +38,7 @@ class ServerLeaderboard extends Component {
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverLeaderboard/${server}/${track}`)
             .then((res) => {
                 console.log(res);
-                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4], usedCars: res.data[5], bestCarAvg: res.data[6], avgCars: res.data[7] });
+                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4], usedCars: res.data[5], bestCarAvg: res.data[6], avgCars: res.data[7], aciCount: res.data[8] });
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
                     document.getElementById("normalPage").style.display = "block";
@@ -111,7 +112,11 @@ class ServerLeaderboard extends Component {
                                                         <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
                                                         <td>{(time.tim_totalTime === this.state.bestDriverTime ? <span className="personalBestEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span> : Base.getFullTime((time.tim_totalTime * 1000)))}</td>
-                                                        <td className="only-desktop">6/40</td>
+                                                        <td className="only-desktop">{ this.state.aciCount.map(count => {
+                                                            if (count.tim_driverName === time.tim_driverName) {
+                                                                return count.tim_aciCount < 40 ? <span className="personalBestEle">{count.tim_aciCount}</span> : <span className="baseEle">{count.tim_aciCount}</span>;
+                                                            }
+                                                        })}/40</td>
                                                         <td>{Base.getGap((this.state.bestTime * 1000), (time.tim_totalTime * 1000))}</td>
                                                     </tr>
                                                 </Link>

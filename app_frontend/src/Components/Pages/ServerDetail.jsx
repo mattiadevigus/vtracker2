@@ -148,7 +148,7 @@ class ServerDetail extends Component {
                                                     <td>{time.tim_sectorOne}</td>
                                                     <td>{time.tim_sectorTwo}</td>
                                                     <td>{time.tim_sectorTree}</td>
-                                                    <td>{Base.getFullTime((time.tim_totalTime * 1000))}</td>
+                                                    <td><span className={(time.tim_isValid === 0 ? "baseEle" : "")}>{Base.getFullTime((time.tim_totalTime * 1000))}</span></td>
                                                 </tr>
                                             )
                                         })
