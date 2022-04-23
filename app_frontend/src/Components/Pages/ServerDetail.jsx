@@ -136,6 +136,7 @@ class ServerDetail extends Component {
                                         <th>S2</th>
                                         <th>S3</th>
                                         <th>Time</th>
+                                        <th>ACI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,6 +150,7 @@ class ServerDetail extends Component {
                                                     <td>{time.tim_sectorTwo}</td>
                                                     <td>{time.tim_sectorTree}</td>
                                                     <td><span className={(time.tim_isValid === 0 ? "baseEle" : "")}>{Base.getFullTime((time.tim_totalTime * 1000))}</span></td>
+                                                    <td>{(time.tim_aciValid === -1 ? <i class="fa-solid fa-circle-check bestEle"></i> : <i class="fa-solid fa-circle-xmark baseEle"></i>)}</td>
                                                 </tr>
                                             )
                                         })

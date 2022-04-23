@@ -20,16 +20,12 @@ exports.startup = async () => {
             let leaderboards = results.getFullLeaderBoard(session);
 
             for (let driver of leaderboards) {
-                let times = results.getAllLapsFromDriver(session, driver.car["carId"])[0];
-                let notValidTimes = results.getAllLapsFromDriver(session, driver.car["carId"])[1];
+                let times = results.getAllLapsFromDriver(session, driver.car["carId"]);
 
                 for (let time of times) {
-                    database.insertTime((driver.currentDriver["firstName"] + " " + driver.currentDriver["lastName"]), driver.car["carModel"], time, idSession, -1);
+                    database.insertTime((driver.currentDriver["firstName"] + " " + driver.currentDriver["lastName"]), driver.car["carModel"], time.splits, idSession, time.isValidForBest == true ? -1 : 0);
                 }
 
-                for (let notValidTime of notValidTimes) {
-                    database.insertTime((driver.currentDriver["firstName"] + " " + driver.currentDriver["lastName"]), driver.car["carModel"], notValidTime, idSession, 0);
-                }
             }
 
             j++;

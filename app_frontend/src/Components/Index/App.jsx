@@ -96,7 +96,7 @@ class App extends Component {
                             </div>
                         </div>
                     </section>
-                    <section id="homeSection2">
+                    {/* <section id="homeSection2">
                         <div id="homeTitle">
                             <h1>TOTAL RESULTS PER TRACK</h1>
                         </div>
@@ -150,7 +150,7 @@ class App extends Component {
                                 </tbody>
                             </table>
                         </div>
-                    </section>
+                    </section> */}
                     <Footer />
                 </div >
                 <Update />
