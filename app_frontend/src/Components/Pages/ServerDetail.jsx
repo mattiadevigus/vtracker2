@@ -92,7 +92,7 @@ class ServerDetail extends Component {
                                                 <h3>AVG SPEED: <span>{this.state.avgSpeed}</span> Km/h</h3>
                                             </div>
                                             <div className="col-12 col-md-4">
-                                                <h3>TOTAL LAPS: {this.state.totalLaps.tim_driverCount}</h3>
+                                                <h3>TOTAL LAPS: {this.state.totalLaps.tim_driverCount >= 40 ? <span className="baseEle">{this.state.totalLaps.tim_driverCount}</span> : <span className="personalBestEle">{this.state.totalLaps.tim_driverCount}</span>}/40</h3>
                                             </div>
                                         </div>
                                         <hr />
@@ -111,14 +111,6 @@ class ServerDetail extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div id="arrowCont">
-                            <a href="#2">
-                                <div className="arrow">
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </a>
-                        </div>
                     </section>
                     <a name="2"></a>
                     <section id="sessionDetailSection">
@@ -132,11 +124,11 @@ class ServerDetail extends Component {
                                 <thead>
                                     <tr>
                                         <th>Lap</th>
-                                        <th>S1</th>
-                                        <th>S2</th>
-                                        <th>S3</th>
+                                        <th className="only-desktop">S1</th>
+                                        <th className="only-desktop">S2</th>
+                                        <th className="only-desktop">S3</th>
                                         <th>Time</th>
-                                        <th>ACI</th>
+                                        <th>Valid</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -146,9 +138,9 @@ class ServerDetail extends Component {
                                             return (
                                                 <tr className={(time.tim_totalTime === this.state.bestDriverTime.tim_totalTime ? "bestTr" : "")}>
                                                     <td id="lapCount">{i + 1}</td>
-                                                    <td>{time.tim_sectorOne}</td>
-                                                    <td>{time.tim_sectorTwo}</td>
-                                                    <td>{time.tim_sectorTree}</td>
+                                                    <td className="only-desktop">{time.tim_sectorOne}</td>
+                                                    <td className="only-desktop">{time.tim_sectorTwo}</td>
+                                                    <td className="only-desktop">{time.tim_sectorTree}</td>
                                                     <td><span className={(time.tim_isValid === 0 ? "baseEle" : "")}>{Base.getFullTime((time.tim_totalTime * 1000))}</span></td>
                                                     <td>{(time.tim_aciValid === -1 ? <i class="fa-solid fa-circle-check bestEle"></i> : <i class="fa-solid fa-circle-xmark baseEle"></i>)}</td>
                                                 </tr>

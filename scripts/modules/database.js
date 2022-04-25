@@ -39,7 +39,7 @@ checkACI = (driverName, time) => {
 
    let count = rs["Count"];
 
-    if(count >= 20) {
+    if(count >= 40) {
         return 0
     } else {
         return -1

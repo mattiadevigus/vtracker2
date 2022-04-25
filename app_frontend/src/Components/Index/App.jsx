@@ -42,7 +42,7 @@ class App extends Component {
                     <Navbar />
                     <section id="homeSection" className="animate__animated animate__fadeIn">
                         <div id="homeContainer">
-                            <img src="/img/icon.png" alt="" />                     
+                            <img src="/img/icon.png" alt="" />
                             <hr />
                             <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by Mattia Devigus</p>
                             <hr />
@@ -70,24 +70,21 @@ class App extends Component {
                                 <div className="row">
                                     {this.state.servers.map((server, i) => {
                                         return (
-                                            <div className="col-6 col-md-6 col-lg-4 serverCol">
+                                            <div className="col-12 serverCol">
                                                 <Link id="trackLink" to={"/serverLeaderboard/" + server.ses_serverName + "/" + server.tra_nameCode}>
                                                     <div className="row">
-                                                        <div className="col-12 col-md-12">
-                                                            <i className="fas fa-server fa-5x"></i>
-                                                            <h5>{server.ses_serverName}</h5>
+                                                        <div className="col-12 col-md-4">
+                                                            <i className="fas fa-server fa-2x"></i>
                                                         </div>
-                                                    </div>
-                                                    <div className="row">
-                                                        <div className="col-lg-2"></div>
-                                                        <div className="col-6 col-lg-4 colS">
+                                                        <div className="col-6 col-md-4">
                                                             <img src={server.tra_track} alt="track" />
                                                         </div>
-                                                        <div className="col-6 col-lg-4 col-md-4 colS">
+                                                        <div className="col-6 col-md-4">
                                                             <img src={server.tra_flag} alt="flag" />
                                                         </div>
-                                                        <div className="col-lg-2"></div>
                                                     </div>
+                                                    <h5>{server.ses_serverName}</h5>
+
                                                 </Link>
                                             </div>
                                         )

@@ -1,6 +1,6 @@
 {
   "name": "vtracker",
-  "version": "QACI",
+  "version": "Q1.3",
   "description": "",
   "main": "server.js",
   "scripts": {

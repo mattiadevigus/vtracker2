@@ -11,12 +11,6 @@ class Update extends Component {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <h5>Q1.0</h5>
-                            <div className="container">
-                                <ul>
-                                    <li>Branch dedicated to the ACI event</li>
-                                </ul>
-                            </div>
                             <h5>2.2.1</h5>
                             <div className="container">
                                 <ul>
