@@ -45,11 +45,9 @@ class App extends Component {
                             <img src="/img/icon.png" alt="" />
                             <hr />
                             <p id="homeDesc">Car session timing system. Powered by Assetto Corsa Competizione Server <br /> Created by Mattia Devigus</p>
-                            <hr />
-                            <h1>Q1.0</h1>
-                            <Link data-bs-toggle="modal" data-bs-target="#update">
+{/*                             <Link data-bs-toggle="modal" data-bs-target="#update">
                                 <button className="btn btn-danger">What's new</button>
-                            </Link>
+                            </Link> */}
                         </div>
                         <div id="arrowCont">
                             <a href="#2">

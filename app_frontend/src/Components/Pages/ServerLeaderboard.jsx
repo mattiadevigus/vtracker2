@@ -21,7 +21,8 @@ class ServerLeaderboard extends Component {
             usedCars: [],
             bestCarAvg: [],
             avgCars: [],
-            aciCount: []
+            aciCount: [],
+            notValidTimes: []
         }
     }
 
@@ -37,8 +38,7 @@ class ServerLeaderboard extends Component {
         document.getElementById("normalPage").style.display = "none";
         axios.post(`http://${Base.getIp()}:${Base.getPort()}/serverLeaderboard/${server}/${track}`)
             .then((res) => {
-                console.log(res);
-                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4], usedCars: res.data[5], bestCarAvg: res.data[6], avgCars: res.data[7], aciCount: res.data[8] });
+                this.setState({ times: res.data[0], bestTime: res.data[1].tim_totalTime, totalDrivers: res.data[2].tim_driverCount, bestSessions: res.data[3], trackInfo: res.data[4], usedCars: res.data[5], bestCarAvg: res.data[6], avgCars: res.data[7], aciCount: res.data[8], notValidTimes: res.data[9] });
                 setTimeout(() => {
                     document.getElementById("loader").style.display = "none";
                     document.getElementById("normalPage").style.display = "block";
@@ -84,7 +84,7 @@ class ServerLeaderboard extends Component {
                                         <th>#</th>
                                         <th>Full Name</th>
                                         {/* <th className="only-desktop">Logo</th> */}
-                                        <th className="only-desktop">Car</th> 
+                                        <th className="only-desktop">Car</th>
                                         <th className="only-desktop">S1</th>
                                         <th className="only-desktop">S2</th>
                                         <th className="only-desktop">S3</th>
@@ -96,6 +96,7 @@ class ServerLeaderboard extends Component {
                                 <tbody>
                                     {
                                         this.state.times.map((time, i) => {
+
                                             let serverName = (window.location.href).split("/")[4];
                                             let track = (window.location.href).split("/")[5];
                                             serverName = serverName.split("#")[0];
@@ -112,12 +113,43 @@ class ServerLeaderboard extends Component {
                                                         <td className="only-desktop">{(time.tim_sectorTwo === this.state.bestSessions.bestSectorTwo ? <span className="bestEle">{time.tim_sectorTwo}</span> : time.tim_sectorTwo)}</td>
                                                         <td className="only-desktop">{(time.tim_sectorTree === this.state.bestSessions.bestSectorTree ? <span className="bestEle">{time.tim_sectorTree}</span> : time.tim_sectorTree)}</td>
                                                         <td>{(time.tim_totalTime === this.state.bestDriverTime ? <span className="personalBestEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span> : Base.getFullTime((time.tim_totalTime * 1000)))}</td>
-                                                        <td className="only-desktop">{ this.state.aciCount.map(count => {
+                                                        <td className="only-desktop">{this.state.aciCount.map(count => {
                                                             if (count.tim_driverName === time.tim_driverName) {
                                                                 return count.tim_aciCount < 40 ? <span className="personalBestEle">{count.tim_aciCount}</span> : <span className="baseEle">{count.tim_aciCount}</span>;
                                                             }
                                                         })}/40</td>
                                                         <td>{Base.getGap((this.state.bestTime * 1000), (time.tim_totalTime * 1000))}</td>
+                                                    </tr>
+                                                </Link>
+                                            )
+                                        })
+                                    }
+
+                                    {
+                                        this.state.notValidTimes.map((time, i) => {
+
+                                            let serverName = (window.location.href).split("/")[4];
+                                            let track = (window.location.href).split("/")[5];
+                                            serverName = serverName.split("#")[0];
+                                            track = track.split("#")[0];
+                                            let driverLink = "/serverDetail/" + serverName + "/" + track + "/" + time.tim_driverName;
+                                            return (
+                                                <Link className="linkTable" to={driverLink}>
+                                                    <tr>
+                                                        <td><span className="baseEle">-</span></td>
+                                                        <td><span className="baseEle">{time.tim_driverName}</span></td>
+                                                        {/* <td className="only-desktop"><img src={time.car_img} /></td> */}
+                                                        <td className="only-desktop"><span className="baseEle">{time.car_name}</span></td>
+                                                        <td className="only-desktop"><span className="baseEle">{time.tim_sectorOne}</span></td>
+                                                        <td className="only-desktop"><span className="baseEle">{time.tim_sectorTwo}</span></td>
+                                                        <td className="only-desktop"><span className="baseEle">{time.tim_sectorTree}</span></td>
+                                                        <td><span className="baseEle"> {Base.getFullTime((time.tim_totalTime * 1000))}</span></td>
+                                                        <td className="only-desktop">{this.state.aciCount.map(count => {
+                                                            if (count.tim_driverName === time.tim_driverName) {
+                                                                return count.tim_aciCount < 40 ? <span className="personalBestEle">{count.tim_aciCount}</span> : <span className="baseEle">{count.tim_aciCount}</span>;
+                                                            }
+                                                        })}/40</td>
+                                                        <td><span className="baseEle">-</span>{/* {Base.getGap((this.state.bestTime * 1000), (time.tim_totalTime * 1000))} */}</td>
                                                     </tr>
                                                 </Link>
                                             )
@@ -162,7 +194,7 @@ class ServerLeaderboard extends Component {
                                 </div>
                                 <div className="col-lg-1"></div>
                             </div>
-{/*                             <br /><br />
+                            {/*                             <br /><br />
                             <div className="row">
                                 <div className="col-lg-3"></div>
                                 <div className="col-12col-lg-6">
